@@ -11,7 +11,7 @@ class IndexController extends Controller
     {
         $number = mt_rand(0, 100);
 
-        return $this->render('lucky/number.html.twig', array(
+        return $this->render('base.html.twig', array(
             'number' => $number,
         ));
     }

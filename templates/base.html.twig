@@ -4,15 +4,24 @@
         <meta charset="UTF-8">
         <title>{% block title %}Bookmarker - The Ultimate Bookmarkin App{% endblock %}</title>
         {% block stylesheets %}
-            <link href="{{ asset('assets/stylesheets/main.css') }}" rel="stylesheet" />
+            <link rel="stylesheet" href="{{ asset('assets/app.css') }}">
         {% endblock %}
     </head>
     <body>
-        {% block body %}
-            Test - 1,2,3,4,5
+        {% block header %}
+            <h1>Bookmarker</h1>
+            <h2>The Ultimate Bookmarking App!</h2>
         {% endblock %}
+
+        {% block footer %}
+            <h5>Copyright 2017 - Josh Byvelds</h5>
+            <p>
+                Created with Symfony 4, Webpack, Material Design Bootstrap & lots of <3
+            </p>
+        {% endblock %}
+
         {% block javascripts %}
-            <script src="{{ asset('assets/javascript/app.js') }}"></script>
+            <script src="{{ asset('assets/app.js') }}"></script>
         {% endblock %}
     </body>
 </html>
