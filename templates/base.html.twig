@@ -9,15 +9,62 @@
     </head>
     <body>
         {% block header %}
-            <h1>Bookmarker</h1>
-            <h2>The Ultimate Bookmarking App!</h2>
+            <header>
+                <h1>Bookmarker</h1>
+                <h2>The Ultimate Bookmarking App!</h2>
+            </header>
         {% endblock %}
 
+        {% block nav %}
+            <nav class="navbar navbar-expand-lg navbar-dark bg-default">
+                <a class="navbar-brand" href="#"><i class="fa fa-bookmark"></i></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#"><i class="fa fa-bookmark"></i>Bookmarks <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-tags"></i>Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-folder"></i>Groups</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-sliders"></i>Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-line-chart"></i>Analytics</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav nav-flex-icons">
+                        <li class="nav-item">
+                            Welcome Back <strong>Shamrock</strong>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"><i class="fa fa-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        {% endblock %}
+
+        {% include "pages/bookmarks.html.twig" %}
+
         {% block footer %}
-            <h5>Copyright 2017 - Josh Byvelds</h5>
-            <p>
-                Created with Symfony 4, Webpack, Material Design Bootstrap & lots of <3
-            </p>
+            <footer>
+                <h5>Copyright 2017 - Josh Byvelds</h5>
+                <p>
+                    Created with Symfony 4, Webpack, Material Design Bootstrap & lots of <3
+                </p>
+            </footer>
+
         {% endblock %}
 
         {% block javascripts %}

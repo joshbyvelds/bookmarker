@@ -1,5 +1,4 @@
 // Stylesheets here..
-
 require('mdbootstrap/css/bootstrap.min.css');
 require('mdbootstrap/css/mdb.min.css');
 require('../css/app.scss');
