@@ -20,7 +20,7 @@ class IndexController extends Controller
     {
         $number = mt_rand(0, 100);
 
-        return $this->render('base.html.twig', array(
+        return $this->render('pages/forms/register.html.twig', array(
             'number' => $number,
         ));
     }
@@ -29,7 +29,7 @@ class IndexController extends Controller
     {
         $number = mt_rand(0, 100);
 
-        return $this->render('base.html.twig', array(
+        return $this->render('pages/forms/login.html.twig', array(
             'number' => $number,
         ));
     }

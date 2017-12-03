@@ -55,7 +55,9 @@
             </nav>
         {% endblock %}
 
-        {% include "pages/bookmarks.html.twig" %}
+        {% block page %}
+            {% include "pages/bookmarks.html.twig" %}
+        {% endblock %}
 
         {% block footer %}
             <footer>

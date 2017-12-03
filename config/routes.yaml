@@ -4,11 +4,11 @@ index:
 
 register:
     path: /register
-    controller: App\Controller\IndexController::index
+    controller: App\Controller\IndexController::register
 
 login:
     path: /login
-    controller: App\Controller\IndexController::index
+    controller: App\Controller\IndexController::login
 
 
 #app_lucky_number:
