@@ -15,4 +15,22 @@ class IndexController extends Controller
             'number' => $number,
         ));
     }
+
+    public function register()
+    {
+        $number = mt_rand(0, 100);
+
+        return $this->render('base.html.twig', array(
+            'number' => $number,
+        ));
+    }
+
+    public function login()
+    {
+        $number = mt_rand(0, 100);
+
+        return $this->render('base.html.twig', array(
+            'number' => $number,
+        ));
+    }
 }
