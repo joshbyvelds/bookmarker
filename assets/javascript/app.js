@@ -1,15 +1,15 @@
 // Stylesheets here..
 require('mdbootstrap/css/bootstrap.min.css');
 require('mdbootstrap/css/mdb.min.css');
+require('font-awesome/css/font-awesome.min.css');
 require('../css/app.scss');
 
 // Javascript here
 
-var $ = require('jquery');
-require('mdbootstrap/js/popper.min.js');
-require('mdbootstrap/js/bootstrap.min.js');
-require('mdbootstrap/js/mdb.min.js');
+function init(){
+    alert("Test Javascript!");
+}
 
+$(document).ready(init);
 
-alert("Test Javascript!");
 

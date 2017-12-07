@@ -33,22 +33,16 @@
                             <a class="nav-link" href="#"><i class="fa fa-folder"></i>Groups</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-sliders"></i>Settings</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa fa-line-chart"></i>Analytics</a>
                         </li>
                     </ul>
 
-                    <ul class="navbar-nav nav-flex-icons">
+                    <ul class="nav navbar-nav nav-flex-icons ml-auto">
                         <li class="nav-item">
-                            Welcome Back <strong>Shamrock</strong>
+                            <a class="nav-link"><i class="fa fa-comments-o"></i> <span class="clearfix d-none d-sm-inline-block">Settings</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"><i class="fa fa-instagram"></i></a>
+                            <a class="nav-link"><i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Account</span></a>
                         </li>
                     </ul>
                 </div>
@@ -70,6 +64,10 @@
         {% endblock %}
 
         {% block javascripts %}
+            <script src="{{ asset('non-webpack/jquery-3.2.1.min.js') }}"></script>
+            <script src="{{ asset('non-webpack/popper.min.js') }}"></script>
+            <script src="{{ asset('non-webpack/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('non-webpack/mdb.min.js') }}"></script>
             <script src="{{ asset('assets/app.js') }}"></script>
         {% endblock %}
     </body>
