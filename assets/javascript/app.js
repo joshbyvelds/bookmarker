@@ -7,7 +7,7 @@ require('../css/app.scss');
 // Javascript here
 
 function init(){
-    alert("Test Javascript!");
+    //alert("Test Javascript!");
 }
 
 $(document).ready(init);
