@@ -1,4 +1,4 @@
 {
-  "directory": "vender/",
+  "directory": "vendor/",
   "timeout": 120000
 }
