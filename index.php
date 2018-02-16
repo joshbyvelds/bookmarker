@@ -8,6 +8,6 @@ $twig = new \Twig_Environment($loader);
 // Twig vars go here. :)
 echo $twig->render('index.twig',
     [
-        'title' => 'Bookmarker'
+        'title' => 'Bookmarker!'
     ]
 );
