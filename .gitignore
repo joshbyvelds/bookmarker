@@ -58,3 +58,4 @@ fabric.properties
 .idea/vcs.xml
 .idea/watcherTasks.xml
 /vendor/
+.idea/typescript-compiler.xml
