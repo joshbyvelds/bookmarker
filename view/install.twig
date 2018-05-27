@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="vendor/MDBootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/MDBootstrap/css/mdb.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/master.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Welcome to Bookmarker!</h1>
+            <p>To install the application to your server, we need some information to get started.</p>
+            <br />
+            <br />
+
+            <form id="install_form">
+                <p class="h4 text-center mb-4">Database User</p>
+
+                <div class="alert alert-danger" id="db_error">
+                    <strong>Info!</strong> Indicates a neutral informative change or action.
+                </div>
+
+                <div class="md-form">
+                    <i class="fas fa-lock prefix grey-text"></i>
+                    <input type="text" class="form-control" name="sql_root_password" id="sql_root_password">
+                    <label for="sql_root_password">SQL Root Password</label>
+                    <div class="alert alert-danger" id="sql_root_error">
+                        <strong>Info!</strong> Indicates a neutral informative change or action.
+                    </div>
+                </div>
+
+                <!-- Material input text -->
+                <div class="md-form">
+                    <i class="fa fa-user-cog prefix grey-text"></i>
+                    <input type="text" class="form-control" name="sql_user" id="sql_user" required>
+                    <label for="sql_user">SQL User</label>
+                    <div class="alert alert-danger" id="sql_user_error">
+                        <strong>Info!</strong> Indicates a neutral informative change or action.
+                    </div>
+                </div>
+
+                <!-- Material input email -->
+                <div class="md-form">
+                    <i class="fab fa-keycdn prefix grey-text"></i>
+                    <input type="password" class="form-control" name="sql_password" id="sql_password" required>
+                    <label for="sql_password">SQL Password</label>
+                    <div class="alert alert-danger" id="sql_password_error">
+                        <strong>Info!</strong> Indicates a neutral informative change or action.
+                    </div>
+                </div>
+
+                <div class="md-form">
+                    <i class="fas fa-database prefix grey-text"></i>
+                    <input type="text" class="form-control" name="sql_database" id="sql_database" required>
+                    <label for="sql_database">Database Name</label>
+                    <div class="alert alert-danger" id="sql_database_error">
+                        <strong>Info!</strong> Indicates a neutral informative change or action.
+                    </div>
+                </div>
+
+                <p class="h4 text-center mb-4">Admin User</p>
+
+                <!-- Material input email -->
+                <div class="md-form">
+                    <i class="fa fa-user-tie prefix grey-text"></i>
+                    <input type="text" id="admin_username" class="form-control" name="admin_username" required minlength="3">
+                    <label for="admin_username">Admin Username</label>
+                    <div class="alert alert-danger" id="admin_username_error">
+                        <strong>Info!</strong> Indicates a neutral informative change or action.
+                    </div>
+                </div>
+
+                <!-- Material input password -->
+                <div class="md-form">
+                    <i class="fa fa-key prefix grey-text"></i>
+                    <input type="password" class="form-control" id="admin_password" name="admin_password" required minlength="6">
+                    <label for="admin_password">Admin Password</label>
+                    <div class="alert alert-danger" id="admin_password_error">
+                        <strong>Info!</strong> Indicates a neutral informative change or action.
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" type="submit">Install Bookmarker!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+<script src="vendor/MDBootstrap/js/popper.min.js"></script>
+<script src="vendor/MDBootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/MDBootstrap/js/mdb.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $(".alert").hide();
+
+        $( "#install_form" ).submit(function( event ) {
+            event.preventDefault();
+            alert($( "#install_form" ).serialize());
+            $.post("php/install.php", $( this ).serialize(), function(json_return){
+                json_return = JSON.parse(json_return);
+
+                if(json_return.error){
+                    if(json_return.sql_root_error){$("#sql_root_error").html(json_return.sql_root_error).slideDown();}
+                    if(json_return.sql_user_error){$("#sql_user_error").html(json_return.sql_user_error).slideDown();}
+                    if(json_return.sql_password_error){$("#sql_password_error").html(json_return.sql_password_error).slideDown();}
+                    if(json_return.sql_database_error){$("#sql_database_error").html(json_return.sql_database_error).slideDown();}
+                    if(json_return.admin_username_error){$("#admin_username_error").html(json_return.admin_username_error).slideDown();}
+                    if(json_return.admin_password_error){$("#admin_password_error").html(json_return.admin_password_error).slideDown();}
+                    if(json_return.db_error){$("#db_error").html(json_return.db_error).slideDown();}
+                }
+            })
+        });
+    });
+</script>
+</body>
+</html>
