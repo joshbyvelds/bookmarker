@@ -59,3 +59,5 @@ fabric.properties
 .idea/watcherTasks.xml
 /vendor/
 .idea/typescript-compiler.xml
+
+php/db.inc.php
