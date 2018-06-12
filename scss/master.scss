@@ -1,4 +1,7 @@
-footer{
-    margin: 16px auto;
-    text-align: center;
-}
+@import "_fonts";
+@import "_leftside";
+
+@import "_grid";
+@import "_rightside";
+@import "_footer";
+

@@ -11,7 +11,7 @@ $title = "Bookmarker! - The Ultimate Bookmark Organizer";
 
 // Check if db file exists..
 if(!file_exists ( 'php/db.inc.php' )) {
-    // If not, load install.php
+    // If not, load install page..
     echo $twig->render('install.twig', ['title' => $title]);
     exit();
 }
@@ -23,9 +23,6 @@ $loggedIn = false;
 
 //TODO:: setup bookmarks
 
-// Finally lets render our templates..
-
-// Twig vars go here. :)
 echo $twig->render('index.twig',
     [
         'title' => $title,
