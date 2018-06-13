@@ -1,3 +1,5 @@
+@import "_variables";
+
 @import "_fonts";
 @import "_leftside";
 
@@ -5,3 +7,6 @@
 @import "_rightside";
 @import "_footer";
 
+html,body {
+    height: 100%;
+}

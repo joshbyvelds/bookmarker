@@ -1,13 +1,16 @@
 .grid{
     display: inline-block;
-    padding-top: 10px;
+    width: calc(100% - #{$leftside_width});
+    padding-top: $grid-top-padding;
     text-align: center;
+    vertical-align: top;
 }
+
 
 .grid_item {
     display:inline-block;
     position: relative;
-    max-width: 460px;
+    max-width: calc(25% - 8px);
     padding: 0;
     margin: 0px 2px;
     list-style: none;

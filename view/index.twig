@@ -23,16 +23,24 @@
     }
 </style>
 
-<div class="leftside">
-    <div class="icons">
-        <i class="fa fa-heart"></i><br>
-        <i class="fa fa-heart"></i><br>
-        <i class="fa fa-heart"></i><br>
-        <i class="fa fa-gear"></i><br>
-    </div>
-</div>
+<div class="leftside" id="leftside_panel">
+    <div class="inside_table">
+        <div class="app_logo"></div>
+        {# -- Top Icons -- #}
+        <div class="nav_item"><i class="fas fa-book-open"></i> <span class="icon_word icon_word-js">Bookmarks</span></div>
+        <div class="nav_item"><i class="fas fa-tags"></i> <span class="icon_word icon_word-js">Groups</span></div>
+        <div class="nav_item"><i class="fas fa-folder-open"></i> <span class="icon_word icon_word-js">Categories</span></div>
+        <div class="nav_item"><i class="fas fa-chart-line"></i> <span class="icon_word icon_word-js">Stats</span></div>
+        <div class="nav_item"><i class="fas fa-search"></i> <span class="icon_word icon_word-js">Search</span></div>
 
-<div class="grid">
+        {# -- Bottom Icons -- #}
+        <div class="nav_item foot"><i class="fas fa-cogs"></i> <span class="icon_word icon_word-js">Settings</span></div>
+        <div class="nav_item foot"><i class="fas fa-sign-out-alt"></i> <span class="icon_word icon_word-js">Logout</span></div>
+    </div>
+</div><!--
+
+
+--><div class="grid" id="the_grid">
     <div class="grid_item">
         <figure class="effect-zoe">
             <img src="img/25.jpg" alt="img25">

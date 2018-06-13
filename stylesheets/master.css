@@ -5,19 +5,48 @@
   src: url("../font/feathericons/feathericons.eot?-8is7zf");
   src: url("../font/feathericons/feathericons.eot?#iefix-8is7zf") format("embedded-opentype"), url("../font/feathericons/feathericons.woff?-8is7zf") format("woff"), url("../font/feathericons/feathericons.ttf?-8is7zf") format("truetype"), url("../font/feathericons/feathericons.svg?-8is7zf#feathericons") format("svg"); }
 .leftside {
-  display: inline-block; }
-  .leftside .icons {
-    width: 60px; }
+  display: inline-block;
+  width: 55px;
+  height: 100%;
+  padding-top: 10px;
+  padding-left: 10px;
+  vertical-align: top;
+  overflow: hidden; }
+  .leftside .inside_table {
+    display: table;
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse; }
+  .leftside .foot {
+    display: table-row;
+    vertical-align: bottom;
+    height: 1px; }
+  .leftside .nav_item {
+    color: #3c4a50;
+    font-size: 32px;
+    cursor: pointer; }
+    .leftside .nav_item:hover {
+      background: #3c4a50;
+      color: white; }
+    .leftside .nav_item i {
+      display: inline-block;
+      width: 40px; }
+  .leftside .icon_word {
+    display: none;
+    padding-left: 10px;
+    font-size: 18px; }
 
 .grid {
   display: inline-block;
+  width: calc(100% - 55px);
   padding-top: 10px;
-  text-align: center; }
+  text-align: center;
+  vertical-align: top; }
 
 .grid_item {
   display: inline-block;
   position: relative;
-  max-width: 460px;
+  max-width: calc(25% - 8px);
   padding: 0;
   margin: 0px 2px;
   list-style: none;
@@ -184,5 +213,8 @@ figure.effect-zoe:hover p.icon-links a:first-child {
 footer {
   margin: 16px auto;
   text-align: center; }
+
+html, body {
+  height: 100%; }
 
 /*# sourceMappingURL=master.css.map */
