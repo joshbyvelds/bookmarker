@@ -3,16 +3,26 @@
 $(document).ready(init);
 
 function init() {
+    var slidelock = false;
+
     $("#leftside_panel").on('mouseenter', function(){
-        $("#leftside_panel").animate({width:"175px"}, 500);
-        $("#the_grid").animate({width:"1720px"}, 500, function(){
+        if(slidelock){return;}else{slidelock = true;}
+        var left_width = 175;
+        var grid_width = $(window).width() - left_width;
+        $("#leftside_panel").animate({width:left_width + "px"}, 500);
+        $("#the_grid").animate({width:grid_width + "px"}, 500, function(){
             $(".icon_word-js").fadeIn(250);
         });
     });
 
     $("#leftside_panel").on('mouseleave', function(){
-        $("#leftside_panel").animate({width:"55px"}, 500);
-        $("#the_grid").animate({width:"1848px"}, 500);
+        if(slidelock){return;}else{slidelock = true;}
+        var left_width = 55;
+        var grid_width = $(window).width() - left_width;
+        $("#leftside_panel").animate({width:left_width + "px"}, 500);
+        $("#the_grid").animate({width: grid_width + "px"}, 500, function(){
+            $("#the_grid").attr("style", "");
+        });
         $(".icon_word-js").hide();
     });
 }
