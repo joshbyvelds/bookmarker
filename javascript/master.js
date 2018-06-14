@@ -12,6 +12,7 @@ function init() {
         $("#leftside_panel").animate({width:left_width + "px"}, 500);
         $("#the_grid").animate({width:grid_width + "px"}, 500, function(){
             $(".icon_word-js").fadeIn(250);
+            slidelock = false;
         });
     });
 
@@ -22,6 +23,7 @@ function init() {
         $("#leftside_panel").animate({width:left_width + "px"}, 500);
         $("#the_grid").animate({width: grid_width + "px"}, 500, function(){
             $("#the_grid").attr("style", "");
+            slidelock = false;
         });
         $(".icon_word-js").hide();
     });
