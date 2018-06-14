@@ -26,20 +26,47 @@
         font-size: 32px;
         cursor: pointer;
 
-        &:hover{
-            background: #3c4a50;
-            color: white;
+        &.icon_red{
+            &:hover{
+                color: red;
+            }
+        }
+
+        &.icon_green{
+            &:hover{color: green;}
+        }
+
+        &.icon_blue{
+            &:hover{color: dodgerblue;}
+        }
+
+        &.icon_pink{
+            &:hover{color: hotpink;}
+        }
+
+        &.icon_purple{
+            &:hover{color: rebeccapurple;}
+        }
+
+        &.icon_orange{
+            &:hover{color: darkorange;}
+        }
+
+        &.icon_yellow{
+            &:hover{color: darkgoldenrod}
         }
 
         i {
             display: inline-block;
-            width: 40px;
+            width: 30px;
         }
     }
 
     .icon_word {
         display: none;
+        position: relative;
+        top: -6px;
         padding-left: 10px;
-        font-size: 18px;
+        font-size: 19px;
     }
 }
