@@ -1,9 +1,12 @@
 .grid{
     display: inline-block;
     width: calc(100% - #{$leftside_width});
+    min-height: 100%;
     padding-top: $grid-top-padding;
-    text-align: center;
+    text-align: left;
     vertical-align: top;
+
+    background: url("../img/logo_large_monochrome_fade.png") center center no-repeat;
 }
 
 
@@ -16,6 +19,21 @@
     list-style: none;
     text-align: center;
     clear:both;
+
+    figure.effect-zoe:hover p.icon-links{
+        a.fav:hover {
+            color: $color2;
+        }
+
+        a.edit:hover {
+            color: $color4;
+        }
+
+        a.stats:hover {
+            color: $color5;
+        }
+    }
+
 }
 
 /* Common style */
@@ -147,25 +165,12 @@ figure.effect-zoe p.icon-links a {
     transform: translate3d(0,200%,0);
 }
 
-figure.effect-zoe p.icon-links a span::before {
+figure.effect-zoe p.icon-links a i::before {
     display: inline-block;
     padding: 8px 10px;
-    font-family: 'feathericons';
     speak: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-eye::before {
-    content: '\e000';
-}
-
-.icon-paper-clip::before {
-    content: '\e001';
-}
-
-.icon-heart::before {
-    content: '\e024';
 }
 
 figure.effect-zoe h2 {

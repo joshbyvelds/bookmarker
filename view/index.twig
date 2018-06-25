@@ -11,6 +11,26 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/regular.css" integrity="sha384-EWu6DiBz01XlR6XGsVuabDMbDN6RT8cwNoY+3tIH+6pUCfaNldJYJQfQlbEIWLyA" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/fontawesome.css" integrity="sha384-GVa9GOgVQgOk+TNYXu7S/InPTfSDTtBalSgkgqQ7sCik56N9ztlkoTr2f/T44oKV" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheets/master.css">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
 </head>
 <body>
 <style>
@@ -25,7 +45,7 @@
 
 <div class="leftside" id="leftside_panel">
     <div class="inside_table">
-        <div class="app_logo"></div>
+        <div class="app_logo"><img src="img/logo_small.png" id="left_panel_logo" alt="bookmarker logo"></div>
         {# -- Top Icons -- #}
         <div class="nav_item icon_green"><i class="fas fa-book-open"></i> <span class="icon_word icon_word-js">Bookmarks</span></div>
         <div class="nav_item icon_red"><i class="fas fa-tags"></i> <span class="icon_word icon_word-js">Groups</span></div>
@@ -34,8 +54,12 @@
         <div class="nav_item icon_orange"><i class="fas fa-search"></i> <span class="icon_word icon_word-js">Search</span></div>
 
         {# -- Bottom Icons -- #}
-        <div class="nav_item foot icon_purple"><i class="fas fa-sliders-h"></i> <span class="icon_word icon_word-js">Settings</span></div>
-        <div class="nav_item foot icon_yellow"><i class="fas fa-sign-out-alt"></i> <span class="icon_word icon_word-js">Logout</span></div>
+        {% if loggedin %}
+            <div class="nav_item foot icon_purple"><i class="fas fa-sliders-h"></i> <span class="icon_word icon_word-js">Settings</span></div>
+            <div class="nav_item foot icon_yellow"><i class="fas fa-sign-out-alt"></i> <span class="icon_word icon_word-js">Logout</span></div>
+        {% else %}
+            <div class="nav_item foot icon_purple"><i class="fas fa-sign-in-alt"></i> <span class="icon_word icon_word-js">Login</span></div>
+        {% endif %}
     </div>
 </div><!--
 
@@ -47,23 +71,9 @@
             <figcaption>
                 <h2>Creative <span>Zoe</span></h2>
                 <p class="icon-links">
-                    <a href="#"><span class="icon-heart"></span></a>
-                    <a href="#"><span class="icon-eye"></span></a>
-                    <a href="#"><span class="icon-paper-clip"></span></a>
-                </p>
-            </figcaption>
-        </figure>
-    </div>
-
-    <div class="grid_item">
-        <figure class="effect-zoe">
-            <img src="img/7.jpg" alt="img7">
-            <figcaption>
-                <h2>Creative <span>Zoe</span></h2>
-                <p class="icon-links">
-                    <a href="#"><span class="icon-heart"></span></a>
-                    <a href="#"><span class="icon-eye"></span></a>
-                    <a href="#"><span class="icon-paper-clip"></span></a>
+                    <a href="#" class="stats"><i class="fas fa-chart-pie"></i></a>
+                    <a href="#" class="edit"><i class="fas fa-edit"></i></a>
+                    <a href="#" class="fav"><i class="fas fa-thumbs-up"></i></a>
                 </p>
             </figcaption>
         </figure>
@@ -71,149 +81,9 @@
 
 
 
-    <div class="grid_item">
-        <figure class="effect-zoe">
-            <img src="img/18.jpg" alt="img18">
-            <figcaption>
-                <h2>Creative <span>Zoe</span></h2>
-                <p class="icon-links">
-                    <a href="#"><span class="icon-heart"></span></a>
-                    <a href="#"><span class="icon-eye"></span></a>
-                    <a href="#"><span class="icon-paper-clip"></span></a>
-                </p>
-            </figcaption>
-        </figure>
-    </div>
-
-    <div class="grid_item">
-        <figure class="effect-zoe">
-            <img src="img/25.jpg" alt="img25">
-            <figcaption>
-                <h2>Creative <span>Zoe</span></h2>
-                <p class="icon-links">
-                    <a href="#"><span class="icon-heart"></span></a>
-                    <a href="#"><span class="icon-eye"></span></a>
-                    <a href="#"><span class="icon-paper-clip"></span></a>
-                </p>
-            </figcaption>
-        </figure>
-    </div>
-
-    <div class="grid_item">
-        <figure class="effect-zoe">
-            <img src="img/7.jpg" alt="img7">
-            <figcaption>
-                <h2>Creative <span>Zoe</span></h2>
-                <p class="icon-links">
-                    <a href="#"><span class="icon-heart"></span></a>
-                    <a href="#"><span class="icon-eye"></span></a>
-                    <a href="#"><span class="icon-paper-clip"></span></a>
-                </p>
-            </figcaption>
-        </figure>
-    </div>
-
-    <div class="grid_item">
-        <figure class="effect-zoe">
-            <img src="img/18.jpg" alt="img18">
-            <figcaption>
-                <h2>Creative <span>Zoe</span></h2>
-                <p class="icon-links">
-                    <a href="#"><span class="icon-heart"></span></a>
-                    <a href="#"><span class="icon-eye"></span></a>
-                    <a href="#"><span class="icon-paper-clip"></span></a>
-                </p>
-            </figcaption>
-        </figure>
-    </div>
-
-    <div class="grid_item">
-        <figure class="effect-zoe">
-            <img src="img/7.jpg" alt="img7">
-            <figcaption>
-                <h2>Creative <span>Zoe</span></h2>
-                <p class="icon-links">
-                    <a href="#"><span class="icon-heart"></span></a>
-                    <a href="#"><span class="icon-eye"></span></a>
-                    <a href="#"><span class="icon-paper-clip"></span></a>
-                </p>
-            </figcaption>
-        </figure>
-    </div>
-
-    <div class="grid_item">
-        <figure class="effect-zoe">
-            <img src="img/18.jpg" alt="img18">
-            <figcaption>
-                <h2>Creative <span>Zoe</span></h2>
-                <p class="icon-links">
-                    <a href="#"><span class="icon-heart"></span></a>
-                    <a href="#"><span class="icon-eye"></span></a>
-                    <a href="#"><span class="icon-paper-clip"></span></a>
-                </p>
-            </figcaption>
-        </figure>
-    </div>
-
-    <div class="grid_item">
-        <figure class="effect-zoe">
-            <img src="img/7.jpg" alt="img7">
-            <figcaption>
-                <h2>Creative <span>Zoe</span></h2>
-                <p class="icon-links">
-                    <a href="#"><span class="icon-heart"></span></a>
-                    <a href="#"><span class="icon-eye"></span></a>
-                    <a href="#"><span class="icon-paper-clip"></span></a>
-                </p>
-            </figcaption>
-        </figure>
-    </div>
 
 
 
-    <div class="grid_item">
-        <figure class="effect-zoe">
-            <img src="img/18.jpg" alt="img18">
-            <figcaption>
-                <h2>Creative <span>Zoe</span></h2>
-                <p class="icon-links">
-                    <a href="#"><span class="icon-heart"></span></a>
-                    <a href="#"><span class="icon-eye"></span></a>
-                    <a href="#"><span class="icon-paper-clip"></span></a>
-                </p>
-            </figcaption>
-        </figure>
-    </div>
-
-    <div class="grid_item">
-        <figure class="effect-zoe">
-            <img src="img/7.jpg" alt="img7">
-            <figcaption>
-                <h2>Creative <span>Zoe</span></h2>
-                <p class="icon-links">
-                    <a href="#"><span class="icon-heart"></span></a>
-                    <a href="#"><span class="icon-eye"></span></a>
-                    <a href="#"><span class="icon-paper-clip"></span></a>
-                </p>
-            </figcaption>
-        </figure>
-    </div>
-
-
-
-    <div class="grid_item">
-        <figure class="effect-zoe">
-            <img src="img/18.jpg" alt="img18">
-            <figcaption>
-                <h2>Creative <span>Zoe</span></h2>
-                <p class="icon-links">
-                    <a href="#"><span class="icon-heart"></span></a>
-                    <a href="#"><span class="icon-eye"></span></a>
-                    <a href="#"><span class="icon-paper-clip"></span></a>
-                </p>
-            </figcaption>
-        </figure>
-    </div>
 </div>
 
 

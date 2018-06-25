@@ -7,6 +7,10 @@
     vertical-align: top;
     overflow: hidden;
 
+    .app_logo{
+        height: 150px;
+    }
+
 
     .inside_table{
         display : table;
@@ -26,34 +30,8 @@
         font-size: 32px;
         cursor: pointer;
 
-        &.icon_red{
-            &:hover{
-                color: red;
-            }
-        }
-
-        &.icon_green{
-            &:hover{color: green;}
-        }
-
-        &.icon_blue{
-            &:hover{color: dodgerblue;}
-        }
-
-        &.icon_pink{
-            &:hover{color: hotpink;}
-        }
-
-        &.icon_purple{
-            &:hover{color: rebeccapurple;}
-        }
-
-        &.icon_orange{
-            &:hover{color: darkorange;}
-        }
-
-        &.icon_yellow{
-            &:hover{color: darkgoldenrod}
+        &:hover {
+            color: $color2;
         }
 
         i {

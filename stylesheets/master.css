@@ -1,3 +1,6 @@
+/* Coolors Exported Palette - coolors.co/3c4a50-399e5a-041b15-22aaa1-4ce0d2 */
+/* HSL */
+/* RGB */
 @font-face {
   font-weight: normal;
   font-style: normal;
@@ -12,6 +15,8 @@
   padding-left: 10px;
   vertical-align: top;
   overflow: hidden; }
+  .leftside .app_logo {
+    height: 150px; }
   .leftside .inside_table {
     display: table;
     width: 100%;
@@ -25,20 +30,8 @@
     color: #3c4a50;
     font-size: 32px;
     cursor: pointer; }
-    .leftside .nav_item.icon_red:hover {
-      color: red; }
-    .leftside .nav_item.icon_green:hover {
-      color: green; }
-    .leftside .nav_item.icon_blue:hover {
-      color: dodgerblue; }
-    .leftside .nav_item.icon_pink:hover {
-      color: hotpink; }
-    .leftside .nav_item.icon_purple:hover {
-      color: rebeccapurple; }
-    .leftside .nav_item.icon_orange:hover {
-      color: darkorange; }
-    .leftside .nav_item.icon_yellow:hover {
-      color: darkgoldenrod; }
+    .leftside .nav_item:hover {
+      color: #399e5a; }
     .leftside .nav_item i {
       display: inline-block;
       width: 30px; }
@@ -52,9 +45,11 @@
 .grid {
   display: inline-block;
   width: calc(100% - 55px);
+  min-height: 100%;
   padding-top: 10px;
-  text-align: center;
-  vertical-align: top; }
+  text-align: left;
+  vertical-align: top;
+  background: url("../img/logo_large_monochrome_fade.png") center center no-repeat; }
 
 .grid_item {
   display: inline-block;
@@ -65,6 +60,12 @@
   list-style: none;
   text-align: center;
   clear: both; }
+  .grid_item figure.effect-zoe:hover p.icon-links a.fav:hover {
+    color: #399e5a; }
+  .grid_item figure.effect-zoe:hover p.icon-links a.edit:hover {
+    color: #22aaa1; }
+  .grid_item figure.effect-zoe:hover p.icon-links a.stats:hover {
+    color: #4ce0d2; }
 
 /* Common style */
 .grid_item figure {
@@ -178,22 +179,12 @@ figure.effect-zoe p.icon-links a {
   -webkit-transform: translate3d(0, 200%, 0);
   transform: translate3d(0, 200%, 0); }
 
-figure.effect-zoe p.icon-links a span::before {
+figure.effect-zoe p.icon-links a i::before {
   display: inline-block;
   padding: 8px 10px;
-  font-family: 'feathericons';
   speak: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-
-.icon-eye::before {
-  content: '\e000'; }
-
-.icon-paper-clip::before {
-  content: '\e001'; }
-
-.icon-heart::before {
-  content: '\e024'; }
 
 figure.effect-zoe h2 {
   display: inline-block; }
