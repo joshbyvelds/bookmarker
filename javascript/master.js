@@ -5,6 +5,10 @@ $(document).ready(init);
 function init() {
     var slidelock = false;
 
+
+}
+
+function slide(){
     $("#leftside_panel").on('mouseenter', function(){
         if(slidelock){return;}else{slidelock = true;}
         var left_width = 175;

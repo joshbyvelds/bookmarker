@@ -1,7 +1,7 @@
 .leftside {
     display: inline-block;
     width: $leftside_width;
-    height: 100%;
+    height: calc(100% - #{$footer_height});
     padding-top: $grid-top-padding;
     padding-left: 10px;
     vertical-align: top;
@@ -41,10 +41,11 @@
     }
 
     .icon_word {
-        display: none;
         position: relative;
         top: -6px;
         padding-left: 10px;
         font-size: 19px;
     }
 }
+
+

@@ -9,8 +9,8 @@
   src: url("../font/feathericons/feathericons.eot?#iefix-8is7zf") format("embedded-opentype"), url("../font/feathericons/feathericons.woff?-8is7zf") format("woff"), url("../font/feathericons/feathericons.ttf?-8is7zf") format("truetype"), url("../font/feathericons/feathericons.svg?-8is7zf#feathericons") format("svg"); }
 .leftside {
   display: inline-block;
-  width: 55px;
-  height: 100%;
+  width: 177px;
+  height: calc(100% - 50px);
   padding-top: 10px;
   padding-left: 10px;
   vertical-align: top;
@@ -36,7 +36,6 @@
       display: inline-block;
       width: 30px; }
   .leftside .icon_word {
-    display: none;
     position: relative;
     top: -6px;
     padding-left: 10px;
@@ -44,12 +43,19 @@
 
 .grid {
   display: inline-block;
-  width: calc(100% - 55px);
-  min-height: 100%;
+  width: calc(100% - 177px);
+  height: calc(100% - 50px);
   padding-top: 10px;
   text-align: left;
   vertical-align: top;
+  overflow: scroll;
+  overflow-x: hidden;
   background: url("../img/logo_large_monochrome_fade.png") center center no-repeat; }
+  .grid::-webkit-scrollbar {
+    width: 0px;
+    /* remove scrollbar space */
+    background: transparent;
+    /* optional: just make scrollbar invisible */ }
 
 .grid_item {
   display: inline-block;
