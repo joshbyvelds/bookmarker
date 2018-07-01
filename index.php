@@ -41,15 +41,19 @@ if(isset($_GET["page"]) && $_GET["page"] === "logout"){
 
 
 // If Index Page..
+require_once("php/db.inc.php");
 $loggedIn = isset($_SESSION['username']);
 
 //TODO:: Get user config if logged in else load public/guest bookmarks
 
-//TODO:: setup bookmarks
+$result = $db->prepare("SELECT * FROM bookmarks");
+$result->execute();
+$bookmarks = $result->fetchAll(PDO::FETCH_ASSOC);
 
 echo $twig->render('index.twig',
     [
         'title' => $title,
-        'loggedin' => $loggedIn
+        'loggedin' => $loggedIn,
+        'bookmarks' => $bookmarks,
     ]
 );

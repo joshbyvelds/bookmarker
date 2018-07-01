@@ -39,7 +39,7 @@ $root="root";
         $result->bindParam(1, $login_username);
         $result->execute();
 
-        $user = $result->fetchAll();
+        $user = $result->fetchAll(PDO::FETCH_ASSOC);
         if(count($user) === 1){
 
             if(password_verify($login_password, $user[0]['password'])){
