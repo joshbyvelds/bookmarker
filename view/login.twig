@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="vendor/MDBootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/MDBootstrap/css/mdb.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/master.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-2">
+            <img src="img/logo_med.png" alt="">
+        </div>
+        <div class="col-12 col-sm-10">
+            <br>
+            <h1>Welcome Back to Bookmarker!</h1>
+            <p>Please login so you can view all of your bookmarks, stats & settings. don't have a account? <a href="/?page=register">Create One Here</a></p>
+            <br />
+            <br />
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <form id="install_form">
+                <p class="h4 text-center mb-4">Database User</p>
+
+                <div class="alert alert-danger" id="db_error">
+                    <strong>Info!</strong> Indicates a neutral informative change or action.
+                </div>
+
+                <!-- Material input email -->
+                <div class="md-form">
+                    <i class="fa fa-user-tie prefix grey-text"></i>
+                    <input type="text" id="login_username" class="form-control" name="login_username" required minlength="3">
+                    <label for="login_username">Username</label>
+                    <div class="alert alert-danger" id="login_username_error">
+                        <strong>Info!</strong> Indicates a neutral informative change or action.
+                    </div>
+                </div>
+
+                <!-- Material input password -->
+                <div class="md-form">
+                    <i class="fa fa-key prefix grey-text"></i>
+                    <input type="password" class="form-control" id="login_password" name="login_password" required minlength="6">
+                    <label for="login_password">Password</label>
+                    <div class="alert alert-danger" id="login_password_error">
+                        <strong>Info!</strong> Indicates a neutral informative change or action.
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+<script src="vendor/MDBootstrap/js/popper.min.js"></script>
+<script src="vendor/MDBootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/MDBootstrap/js/mdb.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $(".alert").hide();
+
+        $( "#install_form" ).submit(function( event ) {
+            event.preventDefault();
+            $.post("php/login.php", $( this ).serialize(), function(json_return){
+                json_return = JSON.parse(json_return);
+
+                if(json_return.error){
+                    if(json_return.login_username_error){$("#login_username_error").html(json_return.login_username_error).slideDown();}
+                    if(json_return.login_password_error){$("#login_password_error").html(json_return.login_password_error).slideDown();}
+                    if(json_return.db_error){$("#db_error").html(json_return.db_error).slideDown();}
+                }else{
+                    window.location.replace('/');
+                }
+            })
+        });
+    });
+</script>
+</body>
+</html>

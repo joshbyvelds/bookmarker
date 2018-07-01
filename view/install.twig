@@ -13,12 +13,21 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-sm-2">
+            <img src="img/logo_med.png" alt="">
+        </div>
+        <div class="col-12 col-sm-10">
+            <br>
             <h1>Welcome to Bookmarker!</h1>
             <p>To install the application to your server, we need some information to get started.</p>
             <br />
             <br />
+        </div>
 
+    </div>
+
+    <div class="row">
+        <div class="col-12">
             <form id="install_form">
                 <p class="h4 text-center mb-4">Database User</p>
 
@@ -105,7 +114,6 @@
 
         $( "#install_form" ).submit(function( event ) {
             event.preventDefault();
-            alert($( "#install_form" ).serialize());
             $.post("php/install.php", $( this ).serialize(), function(json_return){
                 json_return = JSON.parse(json_return);
 
