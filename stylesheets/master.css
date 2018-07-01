@@ -65,7 +65,8 @@
   margin: 0px 2px;
   list-style: none;
   text-align: center;
-  clear: both; }
+  clear: both;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7); }
   .grid_item figure.effect-zoe:hover p.icon-links a.fav:hover {
     color: #399e5a; }
   .grid_item figure.effect-zoe:hover p.icon-links a.edit:hover {
