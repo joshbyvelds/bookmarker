@@ -109,6 +109,14 @@ $admin_password = password_hash($admin_password, PASSWORD_DEFAULT);
 
         // Bookmarks..
 
+        $sql ="CREATE table bookmarks(
+             id INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+             title VARCHAR( 50 ) NOT NULL,
+             url VARCHAR( 250 ) NOT NULL,
+             type INT( 2 ) NOT NULL,
+             passcode VARCHAR( 250 ));" ;
+        $db->exec($sql);
+
         // Categories.
 
         // Groups..

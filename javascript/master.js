@@ -3,9 +3,38 @@
 $(document).ready(init);
 
 function init() {
-    var slidelock = false;
+    setupDropzone();
+    setupNewBookmarkSubmit();
+}
 
+function setupDropzone(){
+    Dropzone.autoDiscover = false;
+    $("#new_bookmark_image").addClass("dropzone").dropzone( { url: "/php/images_upload.php", thumbnailWidth:300, thumbnailHeight:225, renameFile:"new_bookmark_image" });
+}
 
+function setupNewBookmarkSubmit(){
+    $("#modalBookmarkForm .alert").hide();
+
+    $( "#new_bookmark_form" ).submit(function( event ) {
+        event.preventDefault();
+        $.post("php/bookmark.php", $( this ).serialize(), function(json_return) {
+            json_return = JSON.parse(json_return);
+
+            if (json_return.error) {
+                if (json_return.general_error) {
+                    $("#new_bookmark_general_error").html(json_return.general_error).slideDown();
+                }
+
+                if (json_return.title_error) {
+                    $("#new_bookmark_title_error").html(json_return.title_error).slideDown();
+                }
+
+                if(json_return.url_error) {
+                    $("#new_bookmark_url_error").html(json_return.url_error).slideDown();
+                }
+            }
+        });
+    });
 }
 
 function slide(){

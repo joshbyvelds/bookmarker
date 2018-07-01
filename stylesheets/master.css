@@ -221,6 +221,19 @@ figure.effect-zoe:hover p.icon-links a:first-child {
   -webkit-transition-delay: 0.2s;
   transition-delay: 0.2s; }
 
+#new_bookmark_image {
+  width: 304px;
+  padding: 0;
+  margin: 0 auto;
+  border-radius: 20px; }
+  #new_bookmark_image.dropzone .dz-preview {
+    margin: 0;
+    border-radius: 20px; }
+    #new_bookmark_image.dropzone .dz-preview .dz-image {
+      width: 300px;
+      height: 225px;
+      border-radius: 20px; }
+
 footer {
   margin: 16px auto;
   text-align: center; }
