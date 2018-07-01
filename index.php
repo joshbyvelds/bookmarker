@@ -9,6 +9,8 @@ $twig = new \Twig_Environment($loader);
 
 $title = "Bookmarker! - The Ultimate Bookmark Organizer";
 
+session_start();
+
 // Check if db file exists..
 if(!file_exists ( 'php/db.inc.php' )) {
     // If not, load install page..
@@ -28,8 +30,16 @@ if(isset($_GET["page"]) && $_GET["page"] === "register"){
     exit();
 }
 
+// If Logout page..
+if(isset($_GET["page"]) && $_GET["page"] === "logout"){
+    session_unset();
+    session_destroy();
+    session_write_close();
+    setcookie(session_name(),'',0,'/');
+}
 
-session_start();
+
+
 // If Index Page..
 $loggedIn = isset($_SESSION['username']);
 

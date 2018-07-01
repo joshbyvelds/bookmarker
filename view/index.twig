@@ -56,9 +56,9 @@
         {# -- Bottom Icons -- #}
         {% if loggedin %}
             <div class="nav_item foot icon_purple"><i class="fas fa-sliders-h"></i> <span class="icon_word icon_word-js">Settings</span></div>
-            <div class="nav_item foot icon_yellow"><i class="fas fa-sign-out-alt"></i> <span class="icon_word icon_word-js">Logout</span></div>
+            <a href="/?page=logout" class="nav_item foot icon_yellow"><i class="fas fa-sign-out-alt"></i> <span class="icon_word icon_word-js">Logout</span></a>
         {% else %}
-            <a href="/?page=login"class="nav_item foot icon_purple"><i class="fas fa-sign-in-alt"></i> <span class="icon_word icon_word-js">Login</span></a>
+            <a href="/?page=login" class="nav_item foot icon_purple"><i class="fas fa-sign-in-alt"></i> <span class="icon_word icon_word-js">Login</span></a>
         {% endif %}
     </div>
 </div><!--
