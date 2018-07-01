@@ -17,6 +17,10 @@
   overflow: hidden; }
   .leftside .app_logo {
     height: 150px; }
+  .leftside .user_profile_image img {
+    width: 130px;
+    height: 130px;
+    border-radius: 70px; }
   .leftside .inside_table {
     display: table;
     width: 100%;

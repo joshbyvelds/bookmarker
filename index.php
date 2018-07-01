@@ -44,7 +44,13 @@ if(isset($_GET["page"]) && $_GET["page"] === "logout"){
 require_once("php/db.inc.php");
 $loggedIn = isset($_SESSION['username']);
 
+$username = "";
+
 //TODO:: Get user config if logged in else load public/guest bookmarks
+
+if($loggedIn){
+    $username = $_SESSION['username'];
+}
 
 $result = $db->prepare("SELECT * FROM bookmarks");
 $result->execute();
@@ -55,5 +61,6 @@ echo $twig->render('index.twig',
         'title' => $title,
         'loggedin' => $loggedIn,
         'bookmarks' => $bookmarks,
+        'username' => $username,
     ]
 );
