@@ -33,8 +33,6 @@ session_start();
 // If Index Page..
 $loggedIn = isset($_SESSION['username']);
 
-
-var_dump($loggedIn);
 //TODO:: Get user config if logged in else load public/guest bookmarks
 
 //TODO:: setup bookmarks
