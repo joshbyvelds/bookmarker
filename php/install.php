@@ -134,6 +134,9 @@ $admin_password = password_hash($admin_password, PASSWORD_DEFAULT);
         $stmt->bindParam(3, $admin_role);
         $stmt->execute();
 
+        session_start();
+        $_SESSION['username'] = $admin_username;
+
         echo json_encode($json);
 
     } catch (PDOException $e) {
