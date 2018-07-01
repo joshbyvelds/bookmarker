@@ -145,6 +145,8 @@
                     if(json_return.admin_username_error){$("#admin_username_error").html(json_return.admin_username_error).slideDown();}
                     if(json_return.admin_password_error){$("#admin_password_error").html(json_return.admin_password_error).slideDown();}
                     if(json_return.db_error){$("#db_error").html(json_return.db_error).slideDown();}
+                }else{
+                    window.location.replace('/');
                 }
             })
         });

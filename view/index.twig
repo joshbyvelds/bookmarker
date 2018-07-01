@@ -65,13 +65,6 @@
 
 --><div class="grid" id="the_grid">
 
-    {# Example #}
-    <div class="grid_item" data-toggle="modal" data-target="#modalBookmarkForm">
-        <figure class="effect-zoe">
-            <img src="img/new.jpg" alt="img25">
-        </figure>
-    </div>
-
     {% for bookmark in bookmarks %}
         <div class="grid_item" data-id="{{ bookmark.id }}">
             <figure class="effect-zoe">
@@ -87,23 +80,9 @@
             </figure>
         </div>
     {% endfor %}
-
-    {#
-    <div class="grid_item">
-        <figure class="effect-zoe">
-            <img src="img/25.jpg" alt="img25">
-            <figcaption>
-                <h2>Creative <span>Zoe</span></h2>
-                <p class="icon-links">
-                    <a href="#" class="stats"><i class="fas fa-chart-pie"></i></a>
-                    <a href="#" class="edit"><i class="fas fa-edit"></i></a>
-                    <a href="#" class="fav"><i class="fas fa-thumbs-up"></i></a>
-                </p>
-            </figcaption>
-        </figure>
-    </div>
-    #}
 </div>
+
+<button class="new_item_button" data-toggle="modal" data-target="#modalBookmarkForm">+</button>
 
 {% include "partials/new_bookmark_overlay.twig" %}
 

@@ -1,3 +1,27 @@
+
+.new_item_button{
+    position: absolute;
+    top: calc(100% - 120px - #{$footer_height});
+    right: 10px;
+    width: 120px;
+    height: 120px;
+    border: 0;
+    background: $color2;
+    color: white;
+    font-size: 90px;
+    line-height: 90px;
+    border-radius: 70px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+
+
+    &:hover{
+        background: $color4;
+        font-size: 110px;
+        line-height: 110px;
+    }
+}
+
 .grid{
     display: inline-block;
     width: calc(100% - #{$leftside_width});

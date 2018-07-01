@@ -82,8 +82,8 @@ $admin_password = password_hash($admin_password, PASSWORD_DEFAULT);
         $dbfile = fopen("db.inc.php", "w");
         $txt = "<?php\n";
         $txt .= "try {\n";
-        $txt .= "    \$dbh = new PDO('mysql:host=localhost;dbname=$sql_database', \"$sql_user\", \"$sql_password\");\n";
-        $txt .= "    \$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );//Error Handling\n";
+        $txt .= "    \$db = new PDO('mysql:host=localhost;dbname=$sql_database', \"$sql_user\", \"$sql_password\");\n";
+        $txt .= "    \$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );//Error Handling\n";
         $txt .= " } catch (PDOException \$e) {\n";
         $txt .= "    print \"Error!: \" . \$e->getMessage() . \"<br/>\";\n";
         $txt .= "    die();\n";
@@ -114,7 +114,8 @@ $admin_password = password_hash($admin_password, PASSWORD_DEFAULT);
              title VARCHAR( 50 ) NOT NULL,
              url VARCHAR( 250 ) NOT NULL,
              type INT( 2 ) NOT NULL,
-             passcode VARCHAR( 250 ));" ;
+             passcode VARCHAR( 250 ) NOT NULL,
+             lastvisit TIMESTAMP NOT NULL);" ;
         $db->exec($sql);
 
         // Categories.
@@ -132,6 +133,8 @@ $admin_password = password_hash($admin_password, PASSWORD_DEFAULT);
         $stmt->bindParam(2, $admin_password);
         $stmt->bindParam(3, $admin_role);
         $stmt->execute();
+
+        echo json_encode($json);
 
     } catch (PDOException $e) {
         die("DB ERROR: ". $e->getMessage());
