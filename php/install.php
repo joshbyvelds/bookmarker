@@ -115,6 +115,7 @@ $admin_password = password_hash($admin_password, PASSWORD_DEFAULT);
              url VARCHAR( 250 ) NOT NULL,
              type INT( 2 ) NOT NULL,
              passcode VARCHAR( 250 ) NOT NULL,
+             visits INT( 7 ) NOT NULL,
              lastvisit TIMESTAMP NOT NULL);" ;
         $db->exec($sql);
 

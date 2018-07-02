@@ -70,13 +70,26 @@ switch($submit_type){
             }
         }
 
+
         $passcode = 0;
 
-        $stmt = $db->prepare("INSERT INTO bookmarks (title, url, type, passcode) VALUES (?, ?, ?, ?)");
+        // Default Stats Values
+        date_default_timezone_set('America/Toronto');
+        $date = date("Y-m-d H:i:s");
+        $visits = 0;
+
+        $stmt = $db->prepare("INSERT INTO bookmarks (title, url, type, passcode, visits, lastvisit) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bindParam(1, $title);
         $stmt->bindParam(2, $url);
         $stmt->bindParam(3, $bookmark_type);
         $stmt->bindParam(4, $passcode);
+        $stmt->bindParam(5, $visits);
+        $stmt->bindParam(6, $date);
         $stmt->execute();
+
+        $json['last_id'] = $db->lastInsertId();
+        $json['image'] = str_replace(' ', '_', strtolower($title));
+
+        echo json_encode($json);
 
 }

@@ -71,7 +71,10 @@
             <figure class="effect-zoe">
                 <a href="{{ bookmark.url }}" target="_blank"><img src="img/thumbnails/{{ bookmark.title|lower|replace({' ': "_"}) }}.jpg" alt="img25"></a>
                 <figcaption>
-                    <h2>{{ bookmark.title }}</h2>
+                    {% set title_array = bookmark.title|split(' ') %}
+                    {% set last = title_array|last %}
+                    {% set title = title_array|slice(0,-1)|join %}
+                    <h2>{{ title }} <span>{{ last }}</span></h2>
                     <p class="icon-links">
                         <a href="#" class="stats"><i class="fas fa-chart-pie"></i></a>
                         <a href="#" class="edit"><i class="fas fa-edit"></i></a>

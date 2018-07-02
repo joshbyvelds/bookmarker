@@ -32,6 +32,32 @@ function setupNewBookmarkSubmit(){
                 if(json_return.url_error) {
                     $("#new_bookmark_url_error").html(json_return.url_error).slideDown();
                 }
+            }else{
+                var title = "";
+                var titleStart = $("#bookmark_form_title").val().split(" ").slice(0, -1).join(" ");
+                var titleEnd = $("#bookmark_form_title").val().split(" ").pop();
+
+                title = titleStart + " " + "<span>"+ titleEnd +"</span>";
+
+
+                $("#the_grid").append("<div class=\"grid_item\" data-id=\""+ json_return.last_id +"\">\n" +
+                    "            <figure class=\"effect-zoe\">\n" +
+                    "                <a href=\""+ $("#bookmark_form_url").val() +"\" target=\"_blank\"><img src=\"img/thumbnails/"+ json_return.image +".jpg\" alt=\"img25\"></a>\n" +
+                    "                <figcaption>\n" +
+                    "                    <h2>"+ title +"</h2>\n" +
+                    "                    <p class=\"icon-links\">\n" +
+                    "                        <a href=\"#\" class=\"stats\"><i class=\"fas fa-chart-pie\"></i></a>\n" +
+                    "                        <a href=\"#\" class=\"edit\"><i class=\"fas fa-edit\"></i></a>\n" +
+                    "                        <a href=\"#\" class=\"fav\"><i class=\"fas fa-thumbs-up\"></i></a>\n" +
+                    "                    </p>\n" +
+                    "                </figcaption>\n" +
+                    "            </figure>\n" +
+                    "        </div>");
+
+                $("#bookmark_form_url").val("");
+                $("#bookmark_form_title").val("");
+                $("#new_bookmark_type").val("1");
+                $('#modalBookmarkForm').modal('toggle');
             }
         });
     });
