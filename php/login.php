@@ -35,7 +35,7 @@ $host="localhost";
 $root="root";
 
     try {
-        $result = $db->prepare("SELECT username, password FROM users WHERE username = ?");
+        $result = $db->prepare("SELECT id, username, password FROM users WHERE username = ?");
         $result->bindParam(1, $login_username);
         $result->execute();
 
@@ -45,6 +45,7 @@ $root="root";
             if(password_verify($login_password, $user[0]['password'])){
                 session_start();
                 $_SESSION['username'] = $login_username;
+                $_SESSION['user_id'] = $user[0]['id'];
             }else{
                 $json['error'] = true;
                 $json['login_password_error'] = "username and password do not match. Try again.";

@@ -69,10 +69,15 @@ function setupBookmarkVisit(){
     });
 }
 
+function checkTitleFonts(){
+
+}
+
 function init() {
     setupDropzone();
     setupNewBookmarkSubmit();
     setupBookmarkVisit();
+    checkTitleFonts();
 }
 
 $(document).ready(init);

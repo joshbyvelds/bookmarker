@@ -50,11 +50,18 @@ $username = "";
 
 if($loggedIn){
     $username = $_SESSION['username'];
+    $user_id = $_SESSION['user_id'];
+    $result = $db->prepare("SELECT * FROM bookmarks WHERE type = 1 OR user = ?");
+    $result->bindParam(1, $user_id);
+    $result->execute();
+    $bookmarks = $result->fetchAll(PDO::FETCH_ASSOC);
+}else{
+    $result = $db->prepare("SELECT * FROM bookmarks WHERE type = 1");
+    $result->execute();
+    $bookmarks = $result->fetchAll(PDO::FETCH_ASSOC);
 }
 
-$result = $db->prepare("SELECT * FROM bookmarks");
-$result->execute();
-$bookmarks = $result->fetchAll(PDO::FETCH_ASSOC);
+
 
 echo $twig->render('index.twig',
     [
