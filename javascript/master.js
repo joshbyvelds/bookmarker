@@ -26,12 +26,13 @@ function setupNewBookmarkSubmit(){
                     $("#new_bookmark_url_error").html(json_return.url_error).slideDown();
                 }
             }else{
+
+                // Add Bookmark to The Grid.
                 var title = "";
                 var titleStart = $("#bookmark_form_title").val().split(" ").slice(0, -1).join(" ");
                 var titleEnd = $("#bookmark_form_title").val().split(" ").pop();
 
                 title = titleStart + " " + "<span>"+ titleEnd +"</span>";
-
 
                 $("#the_grid").append("<div class=\"grid_item\" data-id=\""+ json_return.last_id +"\">\n" +
                     "            <figure class=\"effect-zoe\">\n" +
@@ -47,9 +48,13 @@ function setupNewBookmarkSubmit(){
                     "            </figure>\n" +
                     "        </div>");
 
+                // Reset New Bookmark Form..
+                Dropzone.forElement("#new_bookmark_image").removeAllFiles(true);
                 $("#bookmark_form_url").val("");
                 $("#bookmark_form_title").val("");
                 $("#new_bookmark_type").val("1");
+
+                // Close Modal..
                 $('#modalBookmarkForm').modal('toggle');
             }
         });
