@@ -9,6 +9,14 @@
 
     .app_logo{
         height: 150px;
+
+        &.desktop{
+            display: block;
+        }
+
+        &.mobile{
+            display: none;
+        }
     }
 
     .user_profile_image img{
@@ -50,6 +58,31 @@
         top: -6px;
         padding-left: 10px;
         font-size: 19px;
+    }
+
+    @media screen and (max-width:600px){
+        width: $leftside_width_mobile;
+
+        .app_logo{
+            height: 30px;
+
+            &.desktop{
+                display: none;
+            }
+
+            &.mobile{
+                display: block;
+            }
+        }
+
+        .icon_word{
+            display: none;
+        }
+
+        .user_profile_image img{
+            width: 40px;
+            height: 40px;
+        }
     }
 }
 

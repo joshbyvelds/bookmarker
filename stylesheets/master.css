@@ -17,6 +17,10 @@
   overflow: hidden; }
   .leftside .app_logo {
     height: 150px; }
+    .leftside .app_logo.desktop {
+      display: block; }
+    .leftside .app_logo.mobile {
+      display: none; }
   .leftside .user_profile_image img {
     width: 130px;
     height: 130px;
@@ -44,6 +48,20 @@
     top: -6px;
     padding-left: 10px;
     font-size: 19px; }
+  @media screen and (max-width: 600px) {
+    .leftside {
+      width: 55px; }
+      .leftside .app_logo {
+        height: 30px; }
+        .leftside .app_logo.desktop {
+          display: none; }
+        .leftside .app_logo.mobile {
+          display: block; }
+      .leftside .icon_word {
+        display: none; }
+      .leftside .user_profile_image img {
+        width: 40px;
+        height: 40px; } }
 
 .new_item_button {
   position: absolute;
@@ -79,6 +97,12 @@
     /* remove scrollbar space */
     background: transparent;
     /* optional: just make scrollbar invisible */ }
+  @media screen and (max-width: 720px) {
+    .grid {
+      background-size: contain; } }
+  @media screen and (max-width: 600px) {
+    .grid {
+      width: calc(100% - 55px); } }
 
 .grid_item {
   display: inline-block;

@@ -38,6 +38,15 @@
     }
 
     background: url("../img/logo_large_monochrome_fade.png") center center no-repeat;
+
+    @media screen and (max-width: 720px){
+        background-size: contain;
+    }
+
+    @media screen and (max-width: 600px){
+        width: calc(100% - #{$leftside_width_mobile});
+    }
+
 }
 
 
