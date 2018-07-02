@@ -70,7 +70,7 @@
     {% for bookmark in bookmarks %}
         <div class="grid_item" data-id="{{ bookmark.id }}">
             <figure class="effect-zoe">
-                <a href="{{ bookmark.url }}" target="_blank"><img src="img/thumbnails/{{ bookmark.title|lower|replace({' ': "_"}) }}.jpg" alt="img25"></a>
+                <a href="{{ bookmark.url }}" target="_blank" class="bookmark_link"><img src="img/thumbnails/{{ bookmark.title|lower|replace({' ': "_"}) }}.jpg" alt="img25"></a>
                 <figcaption>
                     {% set title_array = bookmark.title|split(' ') %}
                     {% set last = title_array|last %}

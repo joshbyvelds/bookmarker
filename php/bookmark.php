@@ -25,6 +25,31 @@ if($json['error']){
 }
 
 switch($submit_type){
+
+    // ----- VISIT BOOKMARK ----- //
+
+    case("visit"):
+
+        if(isset($_POST['id'])){
+            $id = $_POST['id'];
+        }
+
+        if($json['error']){
+            echo json_encode($json);
+            exit();
+        }
+
+        date_default_timezone_set('America/Toronto');
+        $date = date("Y-m-d H:i:s");
+
+        $stmt = $db->prepare("UPDATE bookmarks SET visits = visits + 1, lastvisit = ? WHERE id = ?");
+        $stmt->bindParam(1, $date);
+        $stmt->bindParam(2, $id);
+        $stmt->execute();
+
+
+    // ----- NEW BOOKMARK ----- //
+
     case("new"):
         if(isset($_POST['title'])){
             $title = $_POST['title'];

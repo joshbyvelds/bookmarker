@@ -57,7 +57,11 @@ function setupNewBookmarkSubmit(){
 }
 
 function setupBookmarkVisit(){
-
+    $(".bookmark_link").off("click").click(function(){
+        var id = $(this).parent().parent().data("id");
+        $.post("php/bookmark.php", {"type":"visit", "id":id}, function(){
+        });
+    });
 }
 
 function init() {
