@@ -95,7 +95,10 @@ switch($submit_type){
             }
         }
 
+        session_start();
+        $user_id = (int)$_SESSION['user_id'];
 
+        // Private Passcode storage..
         $passcode = 0;
 
         // Default Stats Values
@@ -103,13 +106,16 @@ switch($submit_type){
         $date = date("Y-m-d H:i:s");
         $visits = 0;
 
-        $stmt = $db->prepare("INSERT INTO bookmarks (title, url, type, passcode, visits, lastvisit) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bindParam(1, $title);
-        $stmt->bindParam(2, $url);
-        $stmt->bindParam(3, $bookmark_type);
-        $stmt->bindParam(4, $passcode);
-        $stmt->bindParam(5, $visits);
-        $stmt->bindParam(6, $date);
+
+        $stmt = $db->prepare("INSERT INTO bookmarks (user, title, url, type, passcode, visits, lastvisit) VALUES (?, ?, ?, ?, ?, ?, ?)");
+
+        $stmt->bindParam(1, $user_id);
+        $stmt->bindParam(2, $title);
+        $stmt->bindParam(3, $url);
+        $stmt->bindParam(4, $bookmark_type);
+        $stmt->bindParam(5, $passcode);
+        $stmt->bindParam(6, $visits);
+        $stmt->bindParam(7, $date);
         $stmt->execute();
 
         $json['last_id'] = $db->lastInsertId();

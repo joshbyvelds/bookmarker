@@ -35,6 +35,7 @@
     vertical-align: bottom;
     height: 1px; }
   .leftside .nav_item {
+    display: block;
     color: #3c4a50;
     font-size: 32px;
     cursor: pointer; }
@@ -87,6 +88,7 @@
   width: calc(100% - 177px);
   height: calc(100% - 50px);
   padding-top: 10px;
+  padding-bottom: 100px;
   text-align: left;
   vertical-align: top;
   overflow: scroll;

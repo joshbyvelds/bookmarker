@@ -48,18 +48,21 @@ $username = "";
 
 //TODO:: Get user config if logged in else load public/guest bookmarks
 
-if($loggedIn){
-    $username = $_SESSION['username'];
-    $user_id = $_SESSION['user_id'];
-    $result = $db->prepare("SELECT * FROM bookmarks WHERE type = 1 OR user = ?");
-    $result->bindParam(1, $user_id);
-    $result->execute();
-    $bookmarks = $result->fetchAll(PDO::FETCH_ASSOC);
-}else{
-    $result = $db->prepare("SELECT * FROM bookmarks WHERE type = 1");
-    $result->execute();
-    $bookmarks = $result->fetchAll(PDO::FETCH_ASSOC);
+if(!isset($_GET['grid_type']) || $_GET['grid_type'] === "bookmarks"){
+    if($loggedIn){
+        $username = $_SESSION['username'];
+        $user_id = $_SESSION['user_id'];
+        $result = $db->prepare("SELECT * FROM bookmarks WHERE type = 1 OR user = ? ORDER BY id ASC ");
+        $result->bindParam(1, $user_id);
+        $result->execute();
+        $bookmarks = $result->fetchAll(PDO::FETCH_ASSOC);
+    }else{
+        $result = $db->prepare("SELECT * FROM bookmarks WHERE type = 1 ORDER BY id ASC");
+        $result->execute();
+        $bookmarks = $result->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
+
 
 
 

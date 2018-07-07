@@ -1,0 +1,20 @@
+<div class="grid" id="the_grid">
+    {% for bookmark in bookmarks %}
+        <div class="grid_item" data-id="{{ bookmark.id }}">
+            <figure class="effect-zoe">
+                <a href="{{ bookmark.url }}" target="_blank" class="bookmark_link"><img src="img/thumbnails/{{ bookmark.title|lower|replace({' ': "_"}) }}.jpg" alt="img25"></a>
+                <figcaption>
+                    {% set title_array = bookmark.title|split(' ') %}
+                    {% set last = title_array|last %}
+                    {% set title = title_array|slice(0,-1)|join %}
+                    <h2>{{ title }} <span>{{ last }}</span></h2>
+                    <p class="icon-links">
+                        <a href="#" class="stats"><i class="fas fa-chart-pie"></i></a>
+                        <a href="#" class="edit"><i class="fas fa-edit"></i></a>
+                        <a href="#" class="fav"><i class="fas fa-thumbs-up"></i></a>
+                    </p>
+                </figcaption>
+            </figure>
+        </div>
+    {% endfor %}
+</div>
