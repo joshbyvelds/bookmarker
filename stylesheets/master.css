@@ -35,7 +35,6 @@
     vertical-align: bottom;
     height: 1px; }
   .leftside .nav_item {
-    display: block;
     color: #3c4a50;
     font-size: 32px;
     cursor: pointer; }
@@ -47,6 +46,8 @@
   .leftside .icon_word {
     position: relative;
     top: -6px;
+    display: inline-block;
+    min-width: 120px;
     padding-left: 10px;
     font-size: 19px; }
   @media screen and (max-width: 600px) {
