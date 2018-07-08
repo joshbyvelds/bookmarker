@@ -6,7 +6,7 @@
     width: 120px;
     height: 120px;
     border: 0;
-    background: $color2;
+    background: $color1;
     color: white;
     font-size: 90px;
     line-height: 90px;
@@ -14,11 +14,28 @@
     cursor: pointer;
     transition: all 0.3s ease-out;
 
+    &:hover {
+        background: $color2;
+    }
 
-    &:hover{
-        background: $color4;
-        font-size: 110px;
-        line-height: 110px;
+    &.bookmarks {
+        &:hover {
+            background: $color3;
+            font-size: 110px;
+            line-height: 110px;
+        }
+    }
+
+    &.categories{
+        &:hover {
+            background: $color5;
+        }
+    }
+
+    &.groups{
+        &:hover {
+            background: $color4;
+        }
     }
 }
 

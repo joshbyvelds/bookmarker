@@ -38,15 +38,31 @@
         height : 1px;
     }
 
-
-
     .nav_item {
-        color: #3c4a50;
+        color: $color1;
         font-size: 32px;
         cursor: pointer;
 
         &:hover {
             color: $color2;
+        }
+
+        &.bookmark{
+            &:hover {
+                color: $color3;
+            }
+        }
+
+        &.category{
+            &:hover {
+                color: $color5;
+            }
+        }
+
+        &.group{
+            &:hover {
+                color: $color4;
+            }
         }
 
         i {
