@@ -1,8 +1,8 @@
-<div class="modal fade" id="modal_bookmarks_form" tabindex="-1" role="dialog" aria-labelledby="bookmarkModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal_groups_form" tabindex="-1" role="dialog" aria-labelledby="bookmarkModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Create New Bookmark</h4>
+                <h4 class="modal-title w-100 font-weight-bold">Create New Group</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -23,6 +23,16 @@
                 </div>
 
                 <div class="modal-body mx-3">
+
+                    <div class="griditem_select_list">
+                        {% for bookmark in bookmarks %}
+                        <div class="griditem_select_item selected">
+                            <div class="selected_checkmark">&#10004;</div>
+                            <img src="img/thumbnails/{{ bookmark.title|lower|replace({' ': "_"}) }}.jpg" alt="img25"> {{ bookmark.title }}
+                        </div>
+                        {% endfor %}
+                    </div>
+
                     <div class="md-form mb-5">
                         <i class="fa fa-signature prefix grey-text"></i>
                         <input type="text" name="title" id="bookmark_form_title" class="form-control validate" required>

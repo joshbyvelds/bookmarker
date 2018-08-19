@@ -123,4 +123,57 @@ switch($submit_type){
 
         echo json_encode($json);
 
+     // --- ADD FAVORITE --- //
+
+    case("like"):
+        if(isset($_POST['id'])){
+            $id = "|" . $_POST['id'];
+        }
+
+        session_start();
+        $user_id = $_SESSION['user_id'];
+
+        // Limit Favorites to 10..
+        $result = $db->prepare("SELECT favorites FROM settings WHERE user = ?");
+        $result->bindParam(1, $user_id);
+        $result->execute();
+        $fav = $result->fetchAll(PDO::FETCH_ASSOC)[0]['favorites'];
+        $favorites = (strlen($fav) === 0) ? [] : explode("|", $fav);
+
+        if(count($favorites) < 11){
+            $stmt = $db->prepare("UPDATE settings SET favorites = CONCAT(COALESCE(`favorites`,''), ?) WHERE user = ?");
+            $stmt->bindParam(1, $id);
+            $stmt->bindParam(2, $user_id);
+            $stmt->execute();
+            $stmt->execute(); // <--- I have no idea why but we need to run this twice in order to get it to save to the db.
+        }
+
+        $json['slot'] = count($favorites);
+        echo json_encode($json);
+
+    case("unlike"):
+        if(isset($_POST['id'])){
+            $id = "|" . $_POST['id'];
+        }
+
+        session_start();
+        $user_id = $_SESSION['user_id'];
+
+        // Limit Favorites to 10..
+        $result = $db->prepare("SELECT favorites FROM settings WHERE user = ?");
+        $result->bindParam(1, $user_id);
+        $result->execute();
+        $favorites = explode("|", $result->fetchAll(PDO::FETCH_ASSOC)[0]['favorites']);
+
+        $remove_me = array_search ($_POST['id'],$favorites);
+        unset($favorites[$remove_me]);
+
+        $favorites = implode("|", $favorites);
+
+        $stmt = $db->prepare("UPDATE settings SET favorites = ? WHERE user = ?");
+        $stmt->bindParam(1, $favorites);
+        $stmt->bindParam(2, $user_id);
+        $stmt->execute();
+
+        echo json_encode($json);
 }

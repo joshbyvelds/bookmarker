@@ -7,7 +7,7 @@
 @import "_grid";
 @import "_rightside";
 
-@import "_new_bookmark_overlay";
+@import "_new_griditem_overlay";
 
 @import "_footer";
 
@@ -15,5 +15,9 @@ html,body {
     height: 100%;
     padding: 0;
     margin: 0;
+}
+
+.clear{
+    clear: both;
 }
 

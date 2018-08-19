@@ -5,8 +5,19 @@ function setupDropzone(){
     $("#new_bookmark_image").addClass("dropzone").dropzone( { url: "/php/images_upload.php", thumbnailWidth:300, thumbnailHeight:225, renameFile:"new_bookmark_image" });
 }
 
+function setupNewGroupSubmit(){
+    $("#modal_groups_form .alert").hide();
+
+    $( "#new_bookmark_form" ).submit(function( event ) {
+        event.preventDefault();
+        $.post("php/group.php", $(this).serialize(), function (json_return) {
+
+        });
+    });
+}
+
 function setupNewBookmarkSubmit(){
-    $("#modalBookmarkForm .alert").hide();
+    $("#modal_bookmarks_form .alert").hide();
 
     $( "#new_bookmark_form" ).submit(function( event ) {
         event.preventDefault();
@@ -70,6 +81,31 @@ function setupBookmarkVisit(){
 }
 
 function checkTitleFonts(){
+    // Get width of all 3 icons..
+    // Get width of bookmark.
+
+    // for each bookmark..
+    // Check to see if title width > bookmark width - 3 icons
+
+    // if it is.. reduce title font size by 1 px; and check again..
+
+}
+
+function setupFavorites(){
+    // Setup like and dislike buttons..
+    $(".grid_item .fav").off().on('click', function(){
+        var $grid_item = $(this).parents('.grid_item');
+        $.post("php/bookmark.php", {"type":"like", "id":$grid_item.data("id")}, function(){
+            $(".free_slot").first().replaceWith( "<a href=\""+ $grid_item.find("a").attr('href') +"\" target=\"_blank\" class=\"favorite_link\"><div class=\"remove-icon\" data-id=\""+ $grid_item.data('id') +"\"><i class=\"fas fa-trash-alt\"></i></div><img src=\""+ $grid_item.find("img").attr("src") +"\" alt=\"img25\"></a>" );
+        });
+    });
+
+    $(".favorite_link .remove-icon").off().on('click', function(event){
+        event.stopPropagation();
+        $.post("php/bookmark.php", {"type":"unlike", "id":$(this).parents('.grid_item').data("id")}, function(){
+            $(this).parent().replaceWith("<div class=\"free_slot\"><i class=\"fas fa-thumbs-up\"></i><img src=\"img/empty.png\" /></div>");
+        });
+    });
 
 }
 
@@ -77,6 +113,8 @@ function init() {
     setupDropzone();
     setupNewBookmarkSubmit();
     setupBookmarkVisit();
+    setupNewGroupSubmit();
+    setupFavorites();
     checkTitleFonts();
 }
 

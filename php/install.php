@@ -134,15 +134,26 @@ $admin_password = password_hash($admin_password, PASSWORD_DEFAULT);
         $db->exec($sql);
 
         // Settings..
+        $sql ="CREATE table settings(
+             user INT( 11 ) PRIMARY KEY,
+             favorites VARCHAR( 150 ));" ;
+        $db->exec($sql);
 
         // Admin..
 
 
-        // Add Admin to users and Admin Tables..
+        // Add Admin to users, settings and Admin Tables..
         $stmt = $db->prepare("INSERT INTO users (username, password, role) VALUES (?, ?, ?)");
         $stmt->bindParam(1, $admin_username);
         $stmt->bindParam(2, $admin_password);
         $stmt->bindParam(3, $admin_role);
+        $stmt->execute();
+
+        $user_id = 1;
+        $fav = "";
+        $stmt = $db->prepare("INSERT INTO settings (user, favorites) VALUES (?, ?)");
+        $stmt->bindParam(1, $user_id);
+        $stmt->bindParam(1, $fav);
         $stmt->execute();
 
         session_start();

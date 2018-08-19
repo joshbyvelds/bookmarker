@@ -85,7 +85,10 @@ if($gridtype === "bookmarks"){
 }
 
 // If Grid type is groups
+$bookmarks = [];
 if($gridtype === "groups"){
+
+    // Get Groups..
     if($loggedIn){
         $username = $_SESSION['username'];
         $user_id = $_SESSION['user_id'];
@@ -98,6 +101,35 @@ if($gridtype === "groups"){
         $result->execute();
         $grid_items = $result->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    // Get Bookmarks for new groups and group editing..
+    if($loggedIn){
+        $username = $_SESSION['username'];
+        $user_id = $_SESSION['user_id'];
+        $result = $db->prepare("SELECT * FROM bookmarks WHERE type = 1 OR user = ? ORDER BY id ASC ");
+        $result->bindParam(1, $user_id);
+        $result->execute();
+        $bookmarks = $result->fetchAll(PDO::FETCH_ASSOC);
+    }else{
+        $result = $db->prepare("SELECT * FROM bookmarks WHERE type = 1 ORDER BY id ASC");
+        $result->execute();
+        $bookmarks = $result->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
+$favorites = [];
+if($loggedIn) {
+    $user_id = $_SESSION['user_id'];
+    $result = $db->prepare("SELECT favorites FROM settings WHERE user = ?");
+    $result->bindParam(1, $user_id);
+    $result->execute();
+    $fav = $result->fetchAll(PDO::FETCH_ASSOC)[0]['favorites'];
+    $fav2 = (strlen($fav) === 0) ? [] : explode("|", $fav);
+
+    $in = join(',', array_fill(0, count($fav2), '?'));
+    $result2 = $db->prepare("SELECT * FROM bookmarks WHERE id IN ($in)");
+    $result2->execute($fav2);
+    $favorites = $result2->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
@@ -107,6 +139,8 @@ echo $twig->render('index.twig',
         'loggedin' => $loggedIn,
         'grid_type' => $gridtype,
         'grid_items' => $grid_items,
+        'bookmarks' => $bookmarks,
         'username' => $username,
+        'favorite_sites' => $favorites,
     ]
 );

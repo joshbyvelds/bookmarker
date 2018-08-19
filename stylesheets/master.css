@@ -96,6 +96,7 @@
     background: #22aaa1; }
 
 .grid {
+  position: relative;
   display: inline-block;
   width: calc(100% - 177px);
   height: calc(100% - 50px);
@@ -117,6 +118,56 @@
   @media screen and (max-width: 600px) {
     .grid {
       width: calc(100% - 55px); } }
+  .grid .favorites_bar {
+    position: sticky;
+    top: -10px;
+    left: 0;
+    padding: 10px 0;
+    width: 100%;
+    z-index: 100;
+    background: #fff;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3); }
+    .grid .favorites_bar .favorite_link {
+      position: relative;
+      display: inline-block;
+      width: 9.1%;
+      margin: 0 0.5%;
+      vertical-align: middle; }
+    .grid .favorites_bar .remove-icon {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 25px;
+      height: 25px;
+      padding: 4px;
+      background: #ffffff;
+      color: black;
+      font-size: 14px;
+      text-align: center;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); }
+    .grid .favorites_bar .favorite_link:first-child {
+      margin-left: 0; }
+    .grid .favorites_bar .favorite_link:last-child {
+      margin-right: 0; }
+    .grid .favorites_bar img {
+      width: 100%; }
+    .grid .favorites_bar div.free_slot {
+      position: relative;
+      display: inline-block;
+      width: 9.0%;
+      margin: 0 0.5%;
+      height: 100%;
+      border: solid 2px #3c4a50;
+      box-sizing: border-box;
+      vertical-align: middle; }
+      .grid .favorites_bar div.free_slot i {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3vw;
+        color: #3c4a50; }
 
 .grid_item {
   display: inline-block;
@@ -295,6 +346,46 @@ figure.effect-zoe:hover p.icon-links a:first-child {
       height: 225px;
       border-radius: 20px; }
 
+.griditem_select_list {
+  height: 200px;
+  padding: 8px 16px;
+  overflow: scroll;
+  overflow-x: hidden; }
+  .griditem_select_list::-webkit-scrollbar {
+    width: 0px;
+    /* remove scrollbar space */
+    background: transparent;
+    /* optional: just make scrollbar invisible */ }
+
+.griditem_select_item {
+  position: relative;
+  font-size: 18px;
+  margin: 3px 0;
+  cursor: pointer; }
+  .griditem_select_item.selected {
+    border: solid 3px #041b15;
+    border-radius: 10px; }
+    .griditem_select_item.selected .selected_checkmark {
+      display: block; }
+  .griditem_select_item:hover {
+    border: solid 3px #22aaa1; }
+  .griditem_select_item .selected_checkmark {
+    position: absolute;
+    top: -10px;
+    left: -18px;
+    display: none;
+    width: 40px;
+    height: 40px;
+    background: #22aaa1;
+    color: white;
+    font-size: 28px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 40px; }
+  .griditem_select_item img {
+    width: 100px;
+    border-radius: 6px; }
+
 footer {
   margin: 16px auto;
   text-align: center; }
@@ -303,5 +394,8 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0; }
+
+.clear {
+  clear: both; }
 
 /*# sourceMappingURL=master.css.map */
