@@ -96,7 +96,7 @@ function setupFavorites(){
     $(".grid_item .fav").off().on('click', function(){
         var $grid_item = $(this).parents('.grid_item');
         $.post("php/bookmark.php", {"type":"like", "id":$grid_item.data("id")}, function(){
-            $(".free_slot").first().replaceWith( "<a href=\""+ $grid_item.find("a").attr('href') +"\" target=\"_blank\" class=\"favorite_link\"><div class=\"remove-icon\" data-id=\""+ $grid_item.data('id') +"\"><i class=\"fas fa-trash-alt\"></i></div><img src=\""+ $grid_item.find("img").attr("src") +"\" alt=\"img25\"></a>" );
+            $(".free_slot").first().replaceWith( "<a href=\""+ $grid_item.find("a").attr('href') +"\" target=\"_blank\" class=\"favorite_link favorite_item\"><div class=\"remove-icon\" data-id=\""+ $grid_item.data('id') +"\"><i class=\"fas fa-trash-alt\"></i></div><img src=\""+ $grid_item.find("img").attr("src") +"\" alt=\"img25\"></a>" );
         });
     });
 
