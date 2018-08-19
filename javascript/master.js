@@ -106,9 +106,7 @@ function setupFavorites(){
     });
 
     $(".favorite_link .remove-icon").off('click').on('click', function(event){
-        console.log(event);
         event.stopPropagation();
-        alert(event.isPropagationStopped());
         var parent = $(this).parent();
         $.post("php/bookmark.php", {"type":"unlike", "id":parent.data("id")}, function(){
             parent.replaceWith("<div class=\"free_slot\"><i class=\"fas fa-thumbs-up\"></i><img src=\"img/empty.png\" /></div>");
