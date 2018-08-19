@@ -2,13 +2,7 @@
     {% if loggedin %}
     <div class="favorites_bar" id="favorites_bar">
         {% set free_slots = 10 %}
-        {% for favorite_site in favorite_sites %}
-            {% set free_slots = free_slots - 1 %}<!--
-            --><a href="{{ favorite_site.url }}" target="_blank" class="favorite_link"><div class="remove-icon" data-id="{{ favorite_site.id }}"><i class="fas fa-trash-alt"></i></div><img src="img/thumbnails/{{ favorite_site.title|lower|replace({' ': "_"}) }}.jpg" alt="img25"></a>
-        {% endfor %}
-
-        {% for i in 1..free_slots %}<div class="free_slot"><i class="fas fa-thumbs-up"></i><img src="img/empty.png" /></div>{% endfor %}
-
+        {% for favorite_site in favorite_sites %}{% set free_slots = free_slots - 1 %}<a href="{{ favorite_site.url }}" target="_blank" class="favorite_link favorite_item"><div class="remove-icon" data-id="{{ favorite_site.id }}"><i class="fas fa-trash-alt"></i></div><img src="img/thumbnails/{{ favorite_site.title|lower|replace({' ': "_"}) }}.jpg" alt="img25"></a>{% endfor %}{% for i in 1..free_slots %}<div class="free_slot favorite_item"><i class="fas fa-thumbs-up"></i><img src="img/empty.png" /></div>{% endfor %}
     </div>
     {% endif %}
 

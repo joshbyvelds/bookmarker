@@ -146,9 +146,9 @@
       text-align: center;
       border-radius: 50%;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); }
-    .grid .favorites_bar .favorite_link:first-child {
+    .grid .favorites_bar .favorite_item:first-child {
       margin-left: 0; }
-    .grid .favorites_bar .favorite_link:last-child {
+    .grid .favorites_bar .favorite_item:last-child {
       margin-right: 0; }
     .grid .favorites_bar img {
       width: 100%; }
