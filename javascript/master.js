@@ -75,7 +75,11 @@ function setupNewBookmarkSubmit(){
 function setupBookmarkVisit(){
     $(".bookmark_link").off("click").click(function(){
         var id = $(this).parent().parent().data("id");
+        $("#fakelink").attr("href", $(this).data("address"));
+
         $.post("php/bookmark.php", {"type":"visit", "id":id}, function(){
+            document.getElementById('fakelink').click();
+            $("#fakelink").attr("href", $(this).data("#"));
         });
     });
 }
@@ -93,17 +97,31 @@ function checkTitleFonts(){
 
 function setupFavorites(){
     // Setup like and dislike buttons..
-    $(".grid_item .fav").off().on('click', function(){
+    $(".grid_item .fav").off('click').on('click', function(){
         var $grid_item = $(this).parents('.grid_item');
         $.post("php/bookmark.php", {"type":"like", "id":$grid_item.data("id")}, function(){
-            $(".free_slot").first().replaceWith( "<a href=\""+ $grid_item.find("a").attr('href') +"\" target=\"_blank\" class=\"favorite_link favorite_item\"><div class=\"remove-icon\" data-id=\""+ $grid_item.data('id') +"\"><i class=\"fas fa-trash-alt\"></i></div><img src=\""+ $grid_item.find("img").attr("src") +"\" alt=\"img25\"></a>" );
+            $(".free_slot").first().replaceWith( "<div data-address=\""+ $grid_item.find("a").attr('href') +"\" class=\"favorite_link favorite_item\"><div class=\"remove-icon\" data-id=\""+ $grid_item.data('id') +"\"><i class=\"fas fa-trash-alt\"></i></div><img src=\""+ $grid_item.find("img").attr("src") +"\" alt=\"img25\"></div>" );
+            setupFavorites();
         });
     });
 
-    $(".favorite_link .remove-icon").off().on('click', function(event){
+    $(".favorite_link .remove-icon").off('click').on('click', function(event){
+        console.log(event);
         event.stopPropagation();
-        $.post("php/bookmark.php", {"type":"unlike", "id":$(this).parents('.grid_item').data("id")}, function(){
-            $(this).parent().replaceWith("<div class=\"free_slot\"><i class=\"fas fa-thumbs-up\"></i><img src=\"img/empty.png\" /></div>");
+        alert(event.isPropagationStopped());
+        var parent = $(this).parent();
+        $.post("php/bookmark.php", {"type":"unlike", "id":parent.data("id")}, function(){
+            parent.replaceWith("<div class=\"free_slot\"><i class=\"fas fa-thumbs-up\"></i><img src=\"img/empty.png\" /></div>");
+        });
+    });
+
+    $(".favorite_link").off('click').on('click', function(){
+        var id = $(this).data("id");
+        $("#fakelink").attr("href", $(this).data("address"));
+
+        $.post("php/bookmark.php", {"type":"visit", "id":id}, function(){
+            document.getElementById('fakelink').click();
+            $("#fakelink").attr("href", $(this).data("#"));
         });
     });
 

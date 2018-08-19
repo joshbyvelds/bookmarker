@@ -47,6 +47,8 @@ switch($submit_type){
         $stmt->bindParam(2, $id);
         $stmt->execute();
 
+        echo json_encode($json);
+
 
     // ----- NEW BOOKMARK ----- //
 
