@@ -1,5 +1,9 @@
 //# sourceMappingURL=master.js.map
 
+function setupLeftHandNav(){
+    $("#global_stats_icon").off().on('click', getGlobalStats);
+}
+
 function setupDropzone(){
     Dropzone.autoDiscover = false;
     $("#new_bookmark_image").addClass("dropzone").dropzone( { url: "/php/images_upload.php", thumbnailWidth:300, thumbnailHeight:225, renameFile:"new_bookmark_image" });
@@ -122,10 +126,56 @@ function setupFavorites(){
             $("#fakelink").attr("href", $(this).data("#"));
         });
     });
+}
 
+function getGlobalStats(){
+    $.post("/php/global_stats.php", {},  function(json_return){
+        json_return = JSON.parse(json_return);
+
+        if (json_return.total_visits) {
+            $(".gstats .total_visits").html(json_return.total_visits);
+        }
+
+        if (json_return.last_bookmark) {
+            $(".gstats .last_bookmark_name").html(json_return.last_bookmark.title);
+            $(".gstats .last_bookmark_date").html(json_return.last_bookmark.lastvisit);
+        }
+
+        if (json_return.user_bookmarks) {
+            $("#user_total_bookmarks").html(json_return.user_bookmarks);
+        }
+
+        if (json_return.topten) {
+            json_return.topten.forEach(function(element) {
+                console.log(element);
+                $("#gstats_top_ten_bookmarks_list").append("<li>"+ element.title + ": <strong>" + element.visits +"</strong></li>");
+            });
+        }
+
+    });
+    openRightHandSide('.gstats');
+}
+
+function openRightHandSide(panel){
+    var rhs_width = 600;
+    var gridMinus = $("#leftside_panel").outerWidth() + rhs_width;
+    var gridWidth = $(window).width() - gridMinus;
+
+    $(".rhs_inside").hide();
+    $(panel).show();
+
+    $(".rhs_wrapper").css({"display":"inline-block"}).animate({"width":rhs_width}, 1000);
+    $(".grid").animate({"width":gridWidth + "px"}, 1000, function () {$(this).css({"width":"calc(100% - " + gridMinus + "px)"});});
+    $(".rhs_wrapper").css({"display":"inline-block"}).animate({"width":rhs_width}, 1000)
+
+    $(".rhs_wrapper .close_x").off().on('click', function(){
+        $(".grid").animate({"width":(gridWidth + rhs_width) + "px"}, 1000, function () {$(this).css({"width":"calc(100% - " + $("#leftside_panel").outerWidth() + "px)"});});
+        $(".rhs_wrapper").animate({"width":0}, 1000, function(){$(".rhs_inside").hide();});
+    });
 }
 
 function init() {
+    setupLeftHandNav();
     setupDropzone();
     setupNewBookmarkSubmit();
     setupBookmarkVisit();

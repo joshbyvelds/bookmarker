@@ -1,19 +1,26 @@
-<div class="rhs_wrapper bstats">
-    <img src="/" alt="book" class="bookmark_image">
+<div class="gstats rhs_inside">
+    <i class="fas fa-times-circle close_x"></i>
+
+    <img src="img/gs_icon.jpg" alt="">
 
     <h3>Global Stats</h3>
 
     <h4>Total visits:</h4>
-    <p class="total_visits">(Big Number Here)</p>
+    <p class="total_visits">0</p>
 
     <h4>Last visited:</h4>
-    <p>Bookmark name</p>
-    <p>month, day, year at hh:mm:ss</p>
+    <p>
+        <span class="last_bookmark_name">Bookmark name</span>
+        <br />
+        <span class="last_bookmark_date">month, day, year at hh:mm:ss</span>
+    </p>
 
-    <h4>Bookmark By User</h4>
-    <div class="user_stats_profile_image">(# of B)</div>
+    <h4>Bookmarks By User</h4>
+    <div class="user_stats_profile_image" style="background:url('img/users/{{ username }}.jpg') center top no-repeat;"><span id="user_total_bookmarks"></span></div>
 
 
-    <h4>Visit Compare Chart</h4>
-    <p>(Similar to Old Lem Glue)</p>
+    <h4>Top 10 Bookmarks</h4>
+    <ol class="top_ten_bookmarks" id="gstats_top_ten_bookmarks_list">
+
+    </ol>
 </div>
