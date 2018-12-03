@@ -23,6 +23,7 @@ $total_visits = $total_visits->fetchAll(PDO::FETCH_ASSOC)[0]['SUM(visits)'];
 $last_bookmark = $db->prepare("SELECT title,lastvisit  FROM Bookmarks ORDER BY lastvisit DESC LIMIT 1");
 $last_bookmark->execute();
 $last_bookmark = $last_bookmark->fetchAll(PDO::FETCH_ASSOC)[0];
+$last_bookmark['lastvisit'] = date('l, F j, Y: g:i:s A', strtotime($last_bookmark['lastvisit']));
 
 // Get User Bookmarks
 $user_bookmarks = $db->prepare("SELECT COUNT(ID) FROM Bookmarks WHERE user = ?;");

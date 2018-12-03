@@ -148,7 +148,7 @@ function getGlobalStats(){
         if (json_return.topten) {
             json_return.topten.forEach(function(element) {
                 console.log(element);
-                $("#gstats_top_ten_bookmarks_list").append("<li>"+ element.title + ": <strong>" + element.visits +"</strong></li>");
+                $("#gstats_top_ten_bookmarks_list").empty().append("<li>"+ element.title + ": <strong>" + element.visits +"</strong></li>");
             });
         }
 
