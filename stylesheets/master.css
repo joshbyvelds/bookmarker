@@ -352,6 +352,12 @@ figure.effect-zoe:hover p.icon-links a:first-child {
     .rhs_wrapper .rhs_inside h3 {
       padding: 16px 0;
       font-size: 40px; }
+    .rhs_wrapper .rhs_inside.bstats img {
+      border-radius: 20px; }
+    .rhs_wrapper .rhs_inside.bstats .visits {
+      font-size: 100px; }
+    .rhs_wrapper .rhs_inside.bstats .date {
+      font-size: 30px; }
     .rhs_wrapper .rhs_inside.gstats .total_visits {
       font-size: 100px; }
     .rhs_wrapper .rhs_inside.gstats .last_bookmark_name {

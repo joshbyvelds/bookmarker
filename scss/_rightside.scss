@@ -22,6 +22,20 @@
             font-size: 40px;
         }
 
+        &.bstats{
+            img{
+                border-radius: 20px;
+            }
+
+            .visits{
+                font-size: 100px;
+            }
+
+            .date{
+                font-size: 30px;
+            }
+        }
+
         &.gstats {
             .total_visits {
                 font-size: 100px;

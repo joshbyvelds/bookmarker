@@ -20,6 +20,22 @@ function setupNewGroupSubmit(){
     });
 }
 
+function setupBookmarkStats(){
+    $(".grid_item .stats").off('click').on('click', function(){
+        var $grid_item = $(this).parents('.grid_item');
+        $.post("php/bookmark_stats.php", {"id":$grid_item.data("id")}, function(json_return){
+            json_return = JSON.parse(json_return);
+            if(!json_return.error){
+                $("#bstats_image").attr("src", $grid_item.find("img").attr("src"));
+                $("#bstats_title").html($grid_item.find("h2").text());
+                $("#bstats_total_visits").html(json_return.stats.visits);
+                $("#bstats_lastvisit").html(json_return.stats.lastvisit);
+                openRightHandSide('.bstats');
+            }
+        });
+    });
+}
+
 function setupNewBookmarkSubmit(){
     $("#modal_bookmarks_form .alert").hide();
 
@@ -175,6 +191,7 @@ function openRightHandSide(panel){
 
 function init() {
     setupLeftHandNav();
+    setupBookmarkStats();
     setupDropzone();
     setupNewBookmarkSubmit();
     setupBookmarkVisit();

@@ -9,7 +9,7 @@ if(isset($_POST['type'])){
     $submit_type = $_POST['type'];
 }else{
     $json['error'] = true;
-    $json['general_error'] = "Type of bookmark form missing. <small>Should be a hidden element.</small";
+    $json['general_error'] = "Type of bookmark form missing. <small>Should be a hidden element.</small>";
     echo json_encode($json);
     exit();
 }
