@@ -1,12 +1,14 @@
 .rhs_wrapper{
     display: none;
     width: 0;
+    overflow: hidden;
 
     .rhs_inside{
         position: relative;
         display: none;
         padding: 20px;
         text-align: center;
+        min-width: 400px;
 
         .close_x{
             position: absolute;

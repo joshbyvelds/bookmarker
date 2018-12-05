@@ -13,7 +13,7 @@ if($json['error']){
     exit();
 }
 
-// Get total visits
+// Get total visits & last visit.
 
 $bookmark_stats = $db->prepare("SELECT visits,lastvist FROM Bookmarks WHERE id = ?;");
 $bookmark_stats->bindParam(1, $bookmark_id);

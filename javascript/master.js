@@ -146,9 +146,9 @@ function getGlobalStats(){
         }
 
         if (json_return.topten) {
+            $("#gstats_top_ten_bookmarks_list").empty();
             json_return.topten.forEach(function(element) {
-                console.log(element);
-                $("#gstats_top_ten_bookmarks_list").empty().append("<li>"+ element.title + ": <strong>" + element.visits +"</strong></li>");
+                $("#gstats_top_ten_bookmarks_list").append("<li>"+ element.title + ": <strong>" + element.visits +"</strong></li>");
             });
         }
 
@@ -164,9 +164,8 @@ function openRightHandSide(panel){
     $(".rhs_inside").hide();
     $(panel).show();
 
-    $(".rhs_wrapper").css({"display":"inline-block"}).animate({"width":rhs_width}, 1000);
+    $(".rhs_wrapper").css({"display":"inline-block"}).delay(50).animate({"width":rhs_width}, 1000);
     $(".grid").animate({"width":gridWidth + "px"}, 1000, function () {$(this).css({"width":"calc(100% - " + gridMinus + "px)"});});
-    $(".rhs_wrapper").css({"display":"inline-block"}).animate({"width":rhs_width}, 1000)
 
     $(".rhs_wrapper .close_x").off().on('click', function(){
         $(".grid").animate({"width":(gridWidth + rhs_width) + "px"}, 1000, function () {$(this).css({"width":"calc(100% - " + $("#leftside_panel").outerWidth() + "px)"});});

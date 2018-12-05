@@ -336,12 +336,14 @@ figure.effect-zoe:hover p.icon-links a:first-child {
 
 .rhs_wrapper {
   display: none;
-  width: 0; }
+  width: 0;
+  overflow: hidden; }
   .rhs_wrapper .rhs_inside {
     position: relative;
     display: none;
     padding: 20px;
-    text-align: center; }
+    text-align: center;
+    min-width: 400px; }
     .rhs_wrapper .rhs_inside .close_x {
       position: absolute;
       top: 20px;
