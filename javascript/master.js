@@ -193,8 +193,8 @@ function openRightHandSide(panel){
     $(".grid").animate({"width":gridWidth + "px"}, 1000, function () {$(this).css({"width":"calc(100% - " + gridMinus + "px)"});});
 
     $(".rhs_wrapper .close_x").off().on('click', function(){
-        $(".grid").animate({"width":(gridWidth + rhs_width) + "px"}, 1000, function () {$(this).css({"width":"calc(99% - " + $("#leftside_panel").outerWidth() + "px)"});});
-        $(".rhs_wrapper").animate({"width":0}, 1000, function(){$(".rhs_inside").hide();});
+        $(".grid").animate({"width":(gridWidth + rhs_width) + "px"}, 1000, function () {$(this).css({"width":""});});
+        $(".rhs_wrapper").width(rhs_width - 1).animate({"width":0}, 1000, function(){$(".rhs_inside").hide();});
     });
 }
 
