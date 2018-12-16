@@ -176,13 +176,22 @@
 .grid_item {
   display: inline-block;
   position: relative;
-  max-width: calc(25% - 8px);
+  max-width: calc(50% - 8px);
   padding: 0;
   margin: 0px 2px;
   list-style: none;
   text-align: center;
   clear: both;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7); }
+  @media screen and (min-width: 480px) {
+    .grid_item {
+      max-width: calc(50% - 8px); } }
+  @media screen and (min-width: 767px) {
+    .grid_item {
+      max-width: calc(33% - 8px); } }
+  @media screen and (min-width: 1024px) {
+    .grid_item {
+      max-width: calc(25% - 8px); } }
   @media screen and (max-width: 767px) {
     .grid_item a.fav {
       display: none; } }
@@ -199,7 +208,6 @@
   float: left;
   overflow: hidden;
   margin: 0;
-  min-width: 320px;
   max-width: 480px;
   max-height: 360px;
   background: #3085a3;
@@ -220,6 +228,9 @@
   font-size: 1.25em;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden; }
+  @media screen and (max-width: 767px) {
+    .grid_item figure figcaption {
+      display: none; } }
 
 .grid_item figure figcaption::before,
 .grid_item figure figcaption::after {
@@ -350,6 +361,12 @@ figure.effect-zoe:hover p.icon-links a:first-child {
     padding: 20px;
     text-align: center;
     min-width: 400px; }
+    @media screen and (max-width: 767px) {
+      .rhs_wrapper .rhs_inside {
+        min-width: 280px; } }
+    @media screen and (max-width: 480px) {
+      .rhs_wrapper .rhs_inside {
+        min-width: 120px; } }
     .rhs_wrapper .rhs_inside .close_x {
       position: absolute;
       top: 20px;

@@ -1,4 +1,12 @@
 
+// Grid Column Sizes
+//TODO:: Set these values in user settings..
+
+$grid-mobile-vert: 50%; //320px;
+$grid-mobile-hori: 50%; //480px;
+$grid-tablet-vert: 33%; //767px;
+$grid-tablet-hori: 25%; //1024px;
+
 .new_item_button{
     position: absolute;
     top: calc(100% - 120px - #{$footer_height});
@@ -143,13 +151,25 @@
 .grid_item {
     display:inline-block;
     position: relative;
-    max-width: calc(25% - 8px);
+    max-width: calc(50% - 8px);
     padding: 0;
     margin: 0px 2px;
     list-style: none;
     text-align: center;
     clear:both;
     box-shadow: 4px 4px 10px rgba(0,0,0,0.7);
+
+    @media screen and (min-width:480px){
+        max-width: calc(50% - 8px);
+    }
+
+    @media screen and (min-width:767px){
+        max-width: calc(33% - 8px);
+    }
+
+    @media screen and (min-width:1024px){
+        max-width: calc(25% - 8px);
+    }
 
     a.fav{
         @media screen and (max-width:767px) {
@@ -179,7 +199,7 @@
     float: left;
     overflow: hidden;
     margin: 0;
-    min-width: 320px;
+    // min-width: 320px;
     max-width: 480px;
     max-height: 360px;
     background: #3085a3;
@@ -202,6 +222,10 @@
     font-size: 1.25em;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+
+    @media screen and (max-width:767px){
+        display: none;
+    }
 }
 
 .grid_item figure figcaption::before,

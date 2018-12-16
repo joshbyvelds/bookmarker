@@ -174,6 +174,15 @@ function getGlobalStats(){
 
 function openRightHandSide(panel){
     var rhs_width = 600;
+
+    if($(window).width() < 767){
+        rhs_width = 300;
+    }
+
+    if($(window).width() < 480){
+        rhs_width = 125;
+    }
+
     var gridMinus = $("#leftside_panel").outerWidth() + rhs_width;
     var gridWidth = $(window).width() - gridMinus;
 
@@ -184,7 +193,7 @@ function openRightHandSide(panel){
     $(".grid").animate({"width":gridWidth + "px"}, 1000, function () {$(this).css({"width":"calc(100% - " + gridMinus + "px)"});});
 
     $(".rhs_wrapper .close_x").off().on('click', function(){
-        $(".grid").animate({"width":(gridWidth + rhs_width) + "px"}, 1000, function () {$(this).css({"width":"calc(100% - " + $("#leftside_panel").outerWidth() + "px)"});});
+        $(".grid").animate({"width":(gridWidth + rhs_width) + "px"}, 1000, function () {$(this).css({"width":"calc(99% - " + $("#leftside_panel").outerWidth() + "px)"});});
         $(".rhs_wrapper").animate({"width":0}, 1000, function(){$(".rhs_inside").hide();});
     });
 }

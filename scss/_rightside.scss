@@ -10,6 +10,16 @@
         text-align: center;
         min-width: 400px;
 
+        @media screen and (max-width: 767px){
+            min-width: 280px;
+        }
+
+        @media screen and (max-width: 480px){
+            min-width: 120px;
+        }
+
+
+
         .close_x{
             position: absolute;
             top: 20px;
