@@ -4,6 +4,10 @@ $json = [];
 
 $json['error'] = false;
 
+if(isset($_POST['sql_root_username'])){
+    $root_username = $_POST['sql_root_username'];
+}
+
 if(isset($_POST['sql_root_password'])){
     $root_password = $_POST['sql_root_password'];
 }
@@ -26,6 +30,11 @@ if(isset($_POST['admin_username'])){
 
 if(isset($_POST['admin_password'])){
     $admin_password = $_POST['admin_password'];
+}
+
+if(empty($root_username)){
+    $json['error'] = true;
+    $json['sql_root_error'] = "Please the username for Root.";
 }
 
 if(empty($sql_user)){
@@ -60,7 +69,7 @@ if($json['error']){
 
 //Create Database
 $host="localhost";
-$root="root";
+$root = $root_username;
 
 $user = $sql_user;
 $pass = $sql_password;
