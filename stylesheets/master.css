@@ -127,6 +127,9 @@
     z-index: 100;
     background: #fff;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3); }
+    @media screen and (max-width: 767px) {
+      .grid .favorites_bar {
+        display: none; } }
     .grid .favorites_bar .favorite_link {
       position: relative;
       display: inline-block;
@@ -180,6 +183,9 @@
   text-align: center;
   clear: both;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7); }
+  @media screen and (max-width: 767px) {
+    .grid_item a.fav {
+      display: none; } }
   .grid_item figure.effect-zoe:hover p.icon-links a.fav:hover {
     color: #041b15; }
   .grid_item figure.effect-zoe:hover p.icon-links a.edit:hover {

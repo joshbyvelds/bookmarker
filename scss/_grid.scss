@@ -76,6 +76,10 @@
         background: #fff;
         box-shadow: 0 3px 3px rgba(0,0,0,0.3);
 
+        @media screen and (max-width:767px){
+            display: none;
+        }
+
         .favorite_link{
             position: relative;
             display: inline-block;
@@ -146,6 +150,12 @@
     text-align: center;
     clear:both;
     box-shadow: 4px 4px 10px rgba(0,0,0,0.7);
+
+    a.fav{
+        @media screen and (max-width:767px) {
+            display: none;
+        }
+    }
 
     figure.effect-zoe:hover p.icon-links{
         a.fav:hover {
