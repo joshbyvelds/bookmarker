@@ -9,7 +9,7 @@ if(isset($_POST['type'])){
     $submit_type = $_POST['type'];
 }else{
     $json['error'] = true;
-    $json['general_error'] = "Type of bookmark form missing. <small>Should be a hidden element.</small>";
+    $json['general_error'] = "Type of bookmark form missing. <small>Should be a hidden element.</small";
     echo json_encode($json);
     exit();
 }
@@ -23,6 +23,7 @@ if($json['error']){
     echo json_encode($json);
     exit();
 }
+
 
 switch($submit_type){
 
@@ -39,6 +40,7 @@ switch($submit_type){
             exit();
         }
 
+
         date_default_timezone_set('America/Toronto');
         $date = date("Y-m-d H:i:s");
 
@@ -46,8 +48,7 @@ switch($submit_type){
         $stmt->bindParam(1, $date);
         $stmt->bindParam(2, $id);
         $stmt->execute();
-
-        echo json_encode($json);
+        break;
 
 
     // ----- NEW BOOKMARK ----- //
@@ -86,8 +87,8 @@ switch($submit_type){
         }
 
 
-        $file = '../img/temp/temp_bookmark_image.jpg';
-        $newfile = '../img/thumbnails/' . str_replace(' ', '_', strtolower($title)) . '.jpg';
+        $file = getcwd() . '../img/temp/temp_bookmark_image.jpg';
+        $newfile = getcwd() . '../img/thumbnails/' . str_replace(' ', '_', strtolower($title)) . '.jpg';
 
         if(file_exists($file)){
             if (!copy($file, $newfile)) {
@@ -124,6 +125,8 @@ switch($submit_type){
         $json['image'] = str_replace(' ', '_', strtolower($title));
 
         echo json_encode($json);
+        break;
+
 
      // --- ADD FAVORITE --- //
 
@@ -152,6 +155,7 @@ switch($submit_type){
 
         $json['slot'] = count($favorites);
         echo json_encode($json);
+        break;
 
     case("unlike"):
         if(isset($_POST['id'])){
@@ -178,4 +182,5 @@ switch($submit_type){
         $stmt->execute();
 
         echo json_encode($json);
+        break;
 }

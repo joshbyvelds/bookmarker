@@ -95,12 +95,7 @@ function setupNewBookmarkSubmit(){
 function setupBookmarkVisit(){
     $(".bookmark_link").off("click").click(function(){
         var id = $(this).parent().parent().data("id");
-        $("#fakelink").attr("href", $(this).data("address"));
-
-        $.post("php/bookmark.php", {"type":"visit", "id":id}, function(){
-            document.getElementById('fakelink').click();
-            $("#fakelink").attr("href", $(this).data("#"));
-        });
+        $.post("php/bookmark.php", {"type":"visit", "id":id});
     });
 }
 
