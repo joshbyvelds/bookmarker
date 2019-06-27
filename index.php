@@ -123,15 +123,20 @@ if($loggedIn) {
     $result = $db->prepare("SELECT favorites FROM settings WHERE user = ?");
     $result->bindParam(1, $user_id);
     $result->execute();
-    $fav = $result->fetchAll(PDO::FETCH_ASSOC)[0]['favorites'];
-    $fav2 = (strlen($fav) === 0) ? [] : explode("|", $fav);
+    $results = $result->fetchAll(PDO::FETCH_ASSOC);
+    if(!empty($results)){
+        $fav = $result->fetchAll(PDO::FETCH_ASSOC)[0]['favorites'];
+        $fav2 = (strlen($fav) === 0) ? [] : explode("|", $fav);
 
-    if(count($fav2) > 0){
-        $in = join(',', array_fill(0, count($fav2), '?'));
-        $result2 = $db->prepare("SELECT * FROM bookmarks WHERE id IN ($in)");
-        $result2->execute($fav2);
-        $favorites = $result2->fetchAll(PDO::FETCH_ASSOC);
+        if(count($fav2) > 0){
+            $in = join(',', array_fill(0, count($fav2), '?'));
+            $result2 = $db->prepare("SELECT * FROM bookmarks WHERE id IN ($in)");
+            $result2->execute($fav2);
+            $favorites = $result2->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
+
+
 }
 
 

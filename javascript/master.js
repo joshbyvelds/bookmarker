@@ -12,7 +12,7 @@ function setupDropzone(){
 function setupNewGroupSubmit(){
     $("#modal_groups_form .alert").hide();
 
-    $( "#new_bookmark_form" ).submit(function( event ) {
+    $( "#new_group_form" ).submit(function( event ) {
         event.preventDefault();
         $.post("php/group.php", $(this).serialize(), function (json_return) {
 

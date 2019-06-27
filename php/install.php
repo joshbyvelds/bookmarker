@@ -132,7 +132,7 @@ $admin_password = password_hash($admin_password, PASSWORD_DEFAULT);
         // Categories.
 
         // Groups..
-        $sql ="CREATE table groups(
+        $sql ="CREATE table bookmark_groups(
              id INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
              user INT( 11 ) NOT NULL,
              title VARCHAR( 50 ) NOT NULL,

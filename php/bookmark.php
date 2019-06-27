@@ -87,8 +87,9 @@ switch($submit_type){
         }
 
 
-        $file = getcwd() . '../img/temp/temp_bookmark_image.jpg';
-        $newfile = getcwd() . '../img/thumbnails/' . str_replace(' ', '_', strtolower($title)) . '.jpg';
+        $file = getcwd() . '/../img/temp/temp_bookmark_image.jpg';
+        $newfile = getcwd() . '/../img/thumbnails/' . str_replace(' ', '_', strtolower($title)) . '.jpg';
+
 
         if(file_exists($file)){
             if (!copy($file, $newfile)) {
