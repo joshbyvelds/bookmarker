@@ -124,8 +124,9 @@ if($loggedIn) {
     $result->bindParam(1, $user_id);
     $result->execute();
     $results = $result->fetchAll(PDO::FETCH_ASSOC);
+
     if(!empty($results)){
-        $fav = $result->fetchAll(PDO::FETCH_ASSOC)[0]['favorites'];
+        $fav = $results[0]['favorites'];
         $fav2 = (strlen($fav) === 0) ? [] : explode("|", $fav);
 
         if(count($fav2) > 0){
