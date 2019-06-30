@@ -99,14 +99,28 @@ function setupBookmarkVisit(){
     });
 }
 
-function checkTitleFonts(){
+function checkAllTitleFonts(){
     // Get width of all 3 icons..
+    var icon_width = Math.ceil($(".grid_item .icon-links .stats").width()) + Math.floor($(".grid_item .icon-links .edit").width()) + Math.floor($(".grid_item .icon-links .fav").width());
     // Get width of bookmark.
+    var bookmark_width = $(".grid_item").width();
 
     // for each bookmark..
-    // Check to see if title width > bookmark width - 3 icons
+    $(".grid_item").each(function(index,element){
+        checkTitleFont(element,icon_width,bookmark_width);
+    });
+}
 
-    // if it is.. reduce title font size by 1 px; and check again..
+function checkTitleFont(element, icon_width, bookmark_width){
+    var $h2 = $(element).find("h2");
+
+    // Check to see if title width > bookmark width - 3 icons
+    if(parseInt($h2.width()) > (parseInt(bookmark_width) - parseInt(icon_width) - 50)){
+        // if it is.. reduce title font size by 1 px; and check again..
+        console.log($h2.css("font-size"));
+        $h2.css("font-size", parseInt($h2.css("font-size")) - 1 + "px");
+        checkTitleFont(element,icon_width,bookmark_width);
+    }
 
 }
 
@@ -201,7 +215,7 @@ function init() {
     setupBookmarkVisit();
     setupNewGroupSubmit();
     setupFavorites();
-    checkTitleFonts();
+    checkAllTitleFonts();
 }
 
 $(document).ready(init);
