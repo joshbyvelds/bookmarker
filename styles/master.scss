@@ -1,3 +1,13 @@
+@import "_reset";
+@import "_variables";
+
 body {
-    //background: #5F5;
+    padding: 20px 65px;
+    margin: 0;
+    background: $body_background_color;
+}
+
+.wrapper {
+    background-color: $wrapper_background_color;
+    border-radius: 45px;
 }

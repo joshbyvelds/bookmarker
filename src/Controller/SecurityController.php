@@ -3,12 +3,40 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
+
+    /**
+     * @Route("/register", name="register")
+     * @param Request $request
+     * @return Response
+     */
+    public function register(Request $request){
+        $form = $this->createFormBuilder()
+            ->add('username')
+            ->add('password', RepeatedType::class, [
+                'type'=> PasswordType::class,
+                'required' => true,
+                'first_options' => ['label' => 'Password'],
+                'second_options' => ['label' => 'Repeat Password'],
+            ])
+            ->add('register', SubmitType::class)
+            ->getForm();
+
+
+        return $this->render('security/register.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
     /**
      * @Route("/login", name="app_login")
      */
