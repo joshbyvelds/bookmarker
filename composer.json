@@ -17,11 +17,7 @@
         "symfony/profiler-pack": "^1.0",
         "symfony/security-bundle": "5.0.*",
         "symfony/twig-pack": "^1.0",
-        "symfony/yaml": "5.0.*",
-        "behat/mink-extension": "^2.3",
-        "behat/mink-goutte-driver": "^1.2",
-        "behat/mink-selenium2-driver": "dev-master",
-        "integratedexperts/behat-screenshot": "^0.7.2"
+        "symfony/yaml": "5.0.*"
     },
     "require-dev": {
     },

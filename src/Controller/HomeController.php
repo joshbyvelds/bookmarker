@@ -12,8 +12,11 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+        //Temp to avoid twig errors..
+        $bookmarks = [];
+
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'bookmarks' => $bookmarks
         ]);
     }
 }
