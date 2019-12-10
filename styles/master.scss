@@ -1,5 +1,11 @@
 @import "_reset";
 @import "_variables";
+@import "_utilites";
+
+@import "_navbar";
+@import "_stats";
+@import "_bookmarks";
+
 
 body {
     padding: 20px 65px;
@@ -7,7 +13,16 @@ body {
     background: $body_background_color;
 }
 
+.fake_wrapper{
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 111px 150px 0;
+}
+
 .wrapper {
+    padding: 25px 50px 0;
     background-color: $wrapper_background_color;
     border-radius: 45px;
 }
+
+
